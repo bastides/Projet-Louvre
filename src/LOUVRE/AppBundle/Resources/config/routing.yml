@@ -1,0 +1,3 @@
+louvre_app_home:
+    path:     /
+    defaults: { _controller: LOUVREAppBundle:App:home }

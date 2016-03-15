@@ -1,0 +1,3 @@
+louvre_app:
+    resource: "@LOUVREAppBundle/Resources/config/routing.yml"
+    prefix:   /
