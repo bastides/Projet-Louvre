@@ -16,9 +16,9 @@ class ContraintHalfTicketValidator extends ConstraintValidator
         $currentTime = strtotime($date);
         
         if ($currentTime > $today14h) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 }

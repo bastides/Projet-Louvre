@@ -13,7 +13,7 @@ class ContraintHalfTicketValidatorTest extends \PHPUnit_Framework_TestCase
         $timestamp = strtotime('today midnight') + (60 * 60 * 14 - 1);
         $date = date("Y-m-d H:i:s", $timestamp);
         
-        $this->assertEquals(true, $contraintHalfTicketValidator->validate($date, new ContraintHalfTicket));
+        $this->assertEquals(false, $contraintHalfTicketValidator->validate($date, new ContraintHalfTicket));
     }
     
     public function testNotValidDayTicket()
@@ -22,7 +22,7 @@ class ContraintHalfTicketValidatorTest extends \PHPUnit_Framework_TestCase
         $timestamp = strtotime('today midnight') + (60 * 60 * 14 + 1);
         $date = date("Y-m-d H:i:s", $timestamp);
         
-        $this->assertEquals(false, $contraintHalfTicketValidator->validate($date, new ContraintHalfTicket));
+        $this->assertEquals(true, $contraintHalfTicketValidator->validate($date, new ContraintHalfTicket));
     }
     
 }

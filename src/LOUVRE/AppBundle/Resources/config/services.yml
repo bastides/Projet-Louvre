@@ -1,4 +1,15 @@
 services:
-#    louvre_app.example:
-#        class: LOUVRE\AppBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    louvre_app.toddler:
+        class: LOUVRE\AppBundle\Rate\LOUVREToddlerRate
+
+    louvre_app.child:
+        class: LOUVRE\AppBundle\Rate\LOUVREChildRate
+        
+    louvre_app.senior:
+        class: LOUVRE\AppBundle\Rate\LOUVRESeniorRate
+        
+    louvre_app.family:
+        class: LOUVRE\AppBundle\Rate\LOUVREFamilyRate
+        
+    louvre_app.thousand:
+        class: LOUVRE\AppBundle\Ticket\LOUVREThousandTickets
