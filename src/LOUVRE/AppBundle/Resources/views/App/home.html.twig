@@ -5,7 +5,90 @@
 {% block stylesheets %} {{ parent() }} {% endblock %}
 
 {% block body %}
-    <h1>Hello World</h1>
+    <div class="container">
+        <div class="row" id="logo">
+            <div class="row col-xs-offset-0 col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+                <img class="img-responsive" src="{{ asset('img/louvre-logo.png') }}" alt="Logo" />
+            </div>
+            <div class="row text-center col-xs-offset-0 col-xs-12 col-sm-offset-4 col-sm-4">
+                <p>Le site de réservation de billets en ligne.</p>
+            </div>
+        </div>
+        
+        <div class="row" id="deals">
+            <div class="row">
+                <p class="text-center" id="rate">Nos tarifs de visite</p>
+            </div>
+            <div class="col-xs-12 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-6 no-padding">
+               <div class="col-xs-12 col-sm-4 normal no-padding margin-top">
+                    <div class="pricing-table-header-normal text-center">
+                        <h2>16 €</h2>
+                        <h3>Normal</h3>
+                    </div>
+                    <div class="pricing-table-features">
+                        <p class="text-justify">Billet <span class="bold-ticket">Standard</span> pour toute personne <span class="bold-ticket">âgée de plus de 12 ans.</span></p>
+                    </div>
+                    <div class="pricing-table-signup"></div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 child no-padding margin-top">
+                    <div class="pricing-table-header-child text-center">
+                        <h2>08 €</h2>
+                        <h3>Enfant</h3>
+                    </div>
+                    <div class="pricing-table-features">
+                        <p class="text-justify">Billet <span class="bold-ticket">Enfant</span> pour les enfants <span class="bold-ticket">âgée de 4 ans à 12 ans.</span></p>
+                    </div>
+                    <div class="pricing-table-signup"></div>
+                </div>
+
+                <div class="col-xs-12 col-sm-4 senior no-padding margin-top">
+                    <div class="pricing-table-header-senior text-center">
+                        <h2>12 €</h2>
+                        <h3>Sénior</h3>
+                    </div>
+                    <div class="pricing-table-features">
+                        <p class="text-justify">Billet <span class="bold-ticket">Sénior</span> pour toute personne <span class="bold-ticket">âgée de plus de 60 ans.</span></p>
+                    </div>
+                    <div class="pricing-table-signup"></div>
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-0 col-lg-4 no-padding">
+                <div class="col-xs-12 col-sm-6 reduct no-padding margin-top">
+                    <div class="pricing-table-header-reduct text-center">
+                        <h2>10 €</h2>
+                        <h3>Réduit</h3>
+                    </div>
+                    <div class="pricing-table-features">
+                        <p class="text-justify">Billet <span class="bold-ticket">Tarif réduit</span> pour toute personne étant <span class="bold-ticket">étudiant, employé du musée, militaire ect...</span></p>
+                    </div>
+                    <div class="pricing-table-signup"></div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6 family no-padding margin-top">
+                    <div class="pricing-table-header-family text-center">
+                        <h2>35 €</h2>
+                        <h3>Famille</h3>
+                    </div>
+                    <div class="pricing-table-features">
+                        <p class="text-justify">Billet <span class="bold-ticket">Tarif familiale</span> pour toute famille composée de <span class="bold-ticket">2 adultes et 2 enfants portant le même nom.</span></p>
+                    </div>
+                    <div class="pricing-table-signup"></div>
+                </div>
+            </div> 
+        </div>
+        
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4" id="order-page">
+            <a href="{{ path('louvre_app_order') }}" class="btn btn-primary btn-block text-center">Passer commande</a>
+        </div>
+    </div>
+    
+    <footer class="container-fluid" id="schedules">
+        <div class="row">
+            <p class="col-xs-offset-1 col-xs-10 col-sm-offset-4 col-sm-4 text-center">Le musée est ouvert tous les jours sauf le mardi, de 9h à 19h30 et jusqu'à 22h le mercredi et le vendredi.</p>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block javascripts %} {{ parent() }} {% endblock %}

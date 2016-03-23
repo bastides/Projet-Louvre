@@ -1,0 +1,165 @@
+/* ------------------ GLOBAL PAGE ------------------ */
+
+@font-face
+{
+   font-family: 'JosefinSans';
+    src: url('../police/JosefinSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+   font-family: 'JosefinSans';
+    src: url('../police/JosefinSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face
+{
+   font-family: 'JosefinSans';
+    src: url('../police/JosefinSans-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+.container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* ------------------ GLOBAL PAGE FIN ------------------ */
+
+/* ------------------ HOMEPAGE ------------------ */
+
+#logo {
+    margin-top: 10px;
+}
+
+#logo p {
+    font-family: JosefinSans, Arial, Georgia;
+    font-size: 20px;
+}
+
+#deals {
+    margin-top: 100px;
+}
+
+#rate {
+    font-family: JosefinSans, Arial, Georgia;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.no-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.normal {
+	border:1px solid #14937a;
+	border-bottom:10px solid #14937a;    
+}
+
+.child {
+	border:1px solid #cd8109;
+	border-bottom:10px solid #cd8109;
+    
+}
+
+.senior {
+	border:1px solid #a12f23;
+	border-bottom:10px solid #a12f23;
+}
+
+.reduct {
+	border:1px solid #1d6391;
+	border-bottom:10px solid #1d6391;
+}
+
+.family {
+	border:1px solid #704b7e;
+	border-bottom:10px solid #704b7e;
+}
+
+.bold-ticket { font-weight: bold; color: #626262; }
+
+.pricing-table-header-normal {
+    padding: 5px 0 5px 0;
+    background: #16a085;
+	border-bottom:10px solid #14937a;
+}
+
+.pricing-table-header-child {
+    padding: 5px 0 5px 0;
+    background: #f39c12;
+	border-bottom:10px solid #cd8109;
+}
+
+.pricing-table-header-senior {
+    padding: 5px 0 5px 0;
+    background: #c0392b;
+	border-bottom:10px solid #a12f23;
+}
+
+.pricing-table-header-reduct {
+    padding: 5px 0 5px 0;
+    background: #2980b9;
+	border-bottom:10px solid #1d6391;
+}
+
+.pricing-table-header-family {
+    padding: 5px 0 5px 0;
+    background: #704b7e;
+	border-bottom:10px solid #4c3457;
+}
+
+.pricing-table-header-normal h2, .pricing-table-header-child h2, .pricing-table-header-senior h2, .pricing-table-header-reduct h2, .pricing-table-header-family h2 {  font-weight: 700; color:#FFF; }
+.pricing-table-header-normal h3, .pricing-table-header-child h3, .pricing-table-header-senior h3, .pricing-table-header-reduct h3, .pricing-table-header-family h3 { font-weight: 500; color:#FFF;  }
+
+
+.pricing-table-text {
+    margin: 15px 30px 0 30px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    line-height: 30px;
+    font-size: 16px;
+    color: #888;
+}
+
+.pricing-table-features {
+    min-height: 130px;
+    margin: 15px 10px 0 10px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px dashed #888;
+    line-height: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+.pricing-table-signup {
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+
+#order-page {
+    margin-top: 80px;
+}
+
+#schedules {
+    background-color: #221e1f;
+    color: white;
+    margin-top: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ------------------ HOMEPAGE FIN ------------------ */

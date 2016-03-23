@@ -11,5 +11,8 @@ services:
     louvre_app.family:
         class: LOUVRE\AppBundle\Rate\LOUVREFamilyRate
         
+    louvre_app.half:
+        class: LOUVRE\AppBundle\Ticket\LOUVREHalfTicket
+        
     louvre_app.thousand:
         class: LOUVRE\AppBundle\Ticket\LOUVREThousandTickets

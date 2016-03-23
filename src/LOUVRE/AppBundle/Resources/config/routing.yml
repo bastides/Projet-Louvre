@@ -1,3 +1,7 @@
 louvre_app_home:
     path:     /
     defaults: { _controller: LOUVREAppBundle:App:home }
+
+louvre_app_order:
+    path:     /Commande
+    defaults: { _controller: LOUVREAppBundle:App:order }
