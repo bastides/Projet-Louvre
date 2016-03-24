@@ -6,7 +6,51 @@
 
 {% block body %}
     <div class="container">
-        <h1>Page de commande</h1>
+        <div class="row">
+            {{ form_start(formTOT, {'attr': {'class': 'col-md-offset-3 col-md-6'}}) }}
+            {{ form_errors(formTOT) }}
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 text-right">
+                        {{ form_label(formTOT.ticket.dayBook, "Date de réservation", {'label_attr': {'class': 'control-label'}}) }}
+                        {{ form_errors(formTOT.ticket.dayBook) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_widget(formTOT.ticket.dayBook, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 text-right">
+                        {{ form_label(formTOT.ticket.type, "Type de billet", {'label_attr': {'class': 'control-label'}}) }}
+                        {{ form_errors(formTOT.ticket.type) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_widget(formTOT.ticket.type, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 text-right">
+                        {{ form_label(formTOT.quantity, "Nombre de billet", {'label_attr': {'class': 'control-label'}}) }}
+                        {{ form_errors(formTOT.quantity) }}
+                    </div>
+                    <div class="col-md-4">
+                        {{ form_widget(formTOT.quantity, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+            </div>
+            
+            {{ form_widget(formTOT.save, {'attr': {'class': 'col-md-offset-8 col-md-2 btn btn-primary'}}) }}
+            {{ form_rest(formTOT) }}
+            
+            {{ form_end(formTOT) }}
+        </div>
     </div>
 {% endblock %}
 

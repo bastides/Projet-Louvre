@@ -29,7 +29,7 @@ class TotalOrderTicket
     private $quantity;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Ticket")
+     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Ticket", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $ticket;
