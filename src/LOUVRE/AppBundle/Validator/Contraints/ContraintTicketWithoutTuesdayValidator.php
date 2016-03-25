@@ -8,9 +8,10 @@ use Symfony\Component\Validator\ConstraintValidator;
 class ContraintTicketWithoutTuesdayValidator extends ConstraintValidator
 {
     // Renvoie false si le billet est acheter pour un mardi
-    public function validate($dateTime, Constraint $constraint)
+    public function validate($dateInit, Constraint $constraint)
     {
-        $date = strftime('%A %d %B', strtotime($dateTime));
+        $dateTransform = strftime('%Y-%m-%d', strtotime(str_replace("/", "-", $dateInit)));
+        $date = strftime('%A %d %B', strtotime($dateTransform));
         $tuesday = explode(" ", $date);
 
         if ($tuesday[0] === "Tuesday") {

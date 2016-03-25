@@ -29,7 +29,7 @@ class TotalOrderTicket
     private $quantity;
 
     /**
-     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Ticket")
+     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Ticket", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $ticket;
@@ -40,4 +40,83 @@ class TotalOrderTicket
      */
     private $totalOrder;
     
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set quantity
+     *
+     * @param integer $quantity
+     * @return TotalOrderTicket
+     */
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Get quantity
+     *
+     * @return integer 
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * Set ticket
+     *
+     * @param \LOUVRE\AppBundle\Entity\Ticket $ticket
+     * @return TotalOrderTicket
+     */
+    public function setTicket(\LOUVRE\AppBundle\Entity\Ticket $ticket)
+    {
+        $this->ticket = $ticket;
+
+        return $this;
+    }
+
+    /**
+     * Get ticket
+     *
+     * @return \LOUVRE\AppBundle\Entity\Ticket 
+     */
+    public function getTicket()
+    {
+        return $this->ticket;
+    }
+
+    /**
+     * Set totalOrder
+     *
+     * @param \LOUVRE\AppBundle\Entity\TotalOrder $totalOrder
+     * @return TotalOrderTicket
+     */
+    public function setTotalOrder(\LOUVRE\AppBundle\Entity\TotalOrder $totalOrder)
+    {
+        $this->totalOrder = $totalOrder;
+
+        return $this;
+    }
+
+    /**
+     * Get totalOrder
+     *
+     * @return \LOUVRE\AppBundle\Entity\TotalOrder 
+     */
+    public function getTotalOrder()
+    {
+        return $this->totalOrder;
+    }
 }

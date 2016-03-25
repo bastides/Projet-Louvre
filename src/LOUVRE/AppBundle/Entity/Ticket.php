@@ -31,21 +31,21 @@ class Ticket
     /**
      * @var int
      *
-     * @ORM\Column(name="price", type="integer")
+     * @ORM\Column(name="price", type="integer", nullable=true)
      */
     private $price;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="dayBook", type="datetime")
+     * @ORM\Column(name="dayBook", type="string", length=255)
      */
     private $dayBook;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="bookingCode", type="string", length=255, unique=true)
+     * @ORM\Column(name="bookingCode", type="string", length=255, unique=true, nullable=true)
      */
     private $bookingCode;
 
@@ -107,29 +107,6 @@ class Ticket
     }
 
     /**
-     * Set dayBook
-     *
-     * @param \DateTime $dayBook
-     * @return Ticket
-     */
-    public function setDayBook($dayBook)
-    {
-        $this->dayBook = $dayBook;
-
-        return $this;
-    }
-
-    /**
-     * Get dayBook
-     *
-     * @return \DateTime 
-     */
-    public function getDayBook()
-    {
-        return $this->dayBook;
-    }
-
-    /**
      * Set bookingCode
      *
      * @param string $bookingCode
@@ -150,5 +127,28 @@ class Ticket
     public function getBookingCode()
     {
         return $this->bookingCode;
+    }
+
+    /**
+     * Set dayBook
+     *
+     * @param string $dayBook
+     * @return Ticket
+     */
+    public function setDayBook($dayBook)
+    {
+        $this->dayBook = $dayBook;
+
+        return $this;
+    }
+
+    /**
+     * Get dayBook
+     *
+     * @return string 
+     */
+    public function getDayBook()
+    {
+        return $this->dayBook;
     }
 }

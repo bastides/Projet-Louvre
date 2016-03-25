@@ -7,13 +7,14 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 class ContraintTicketWithoutHolidayValidator extends ConstraintValidator
 {
-    // Renvoie false si le billet est acheter pour un mardi
-    public function validate($dateTime, Constraint $constraint)
+    // Renvoie false si le billet est acheter pour un jour férié
+    public function validate($dateInit, Constraint $constraint)
     {
         $holidays = ['2016-05-01', '2016-11-01', '2016-12-25'];
         $holiday = [];
-
-        $date = strftime('%d %B', strtotime($dateTime));
+        
+        $dateTransform = strftime('%Y-%m-%d', strtotime(str_replace("/", "-", $dateInit)));
+        $date = strftime('%d %B', strtotime($dateTransform));
 
         for ($i = 0; $i < count($holidays); $i++) {
             $holiday[$i] = strftime('%d %B', strtotime($holidays[$i]));

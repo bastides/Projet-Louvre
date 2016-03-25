@@ -11,7 +11,8 @@ class ContraintTicketValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $contraintTicketValidator = new ContraintTicketValidator();
         $timestamp = strtotime('today midnight') + 1;
-        $date = date("Y-m-d H:i:s", $timestamp);
+        $dateInit = date("Y-m-d H:i:s", $timestamp);
+        $date = strftime('%d-%m-%Y', strtotime(str_replace("-", "/", $dateInit)));
         
         $this->assertEquals(true, $contraintTicketValidator->validate($date, new ContraintTicket));
     }
@@ -20,7 +21,8 @@ class ContraintTicketValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $contraintTicketValidator = new ContraintTicketValidator();
         $timestamp = strtotime('today midnight') - 1;
-        $date = date("Y-m-d H:i:s", $timestamp);
+        $dateInit = date("Y-m-d H:i:s", $timestamp);
+        $date = strftime('%d-%m-%Y', strtotime(str_replace("-", "/", $dateInit)));
         
         $this->assertEquals(false, $contraintTicketValidator->validate($date, new ContraintTicket));
     }
