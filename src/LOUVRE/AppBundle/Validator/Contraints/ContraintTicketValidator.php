@@ -8,18 +8,14 @@ use Symfony\Component\Validator\ConstraintValidator;
 class ContraintTicketValidator extends ConstraintValidator
 {
     // Renvoie false si le billet est acheté à une date antérieur à aujourd'hui
-    public function validate($dateInit, Constraint $constraint)
-    {
-        $date = strftime('%Y-%m-%d', strtotime(str_replace("/", "-", $dateInit)));
-        
+    public function validate($date, Constraint $constraint)
+    {        
         $todayMidnight = strtotime('today midnight');
         
         $currentTime = strtotime($date);
         
         if ($currentTime < $todayMidnight) {
-            return false;
-        } else {
-            return true;
+            $this->context->buildViolation($constraint->message);
         }
     }
 }

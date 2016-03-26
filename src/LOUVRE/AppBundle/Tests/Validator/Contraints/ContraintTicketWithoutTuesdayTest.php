@@ -3,23 +3,29 @@
 namespace LOUVRE\AppBundle\Validator\Contraints;
 
 use LOUVRE\AppBundle\Validator\Contraints;
+use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 
 
-class ContraintTicketWithoutTuesdayTest extends \PHPUnit_Framework_TestCase
+class ContraintTicketWithoutTuesdayTest extends AbstractConstraintValidatorTest
 {
     public function testWithOutThuesday()
     {
-        $contraintTicketWithoutTuesdayValidator = new ContraintTicketWithoutTuesdayValidator();
-        $date = '17/03/2016'; 
+        $date = '2016-03-17'; 
         
-        $this->assertEquals(true, $contraintTicketWithoutTuesdayValidator->validate($date, new ContraintTicketWithoutTuesday));
+        $this->validator->validate($date, new ContraintTicketWithoutTuesday);
+        $this->assertNoViolation();
     }
     
     public function testWithThuesday()
     {
-        $contraintTicketWithoutTuesdayValidator = new ContraintTicketWithoutTuesdayValidator();
-        $date = '15/03/2016'; 
+        $date = '2016-03-15'; 
         
-        $this->assertEquals(false, $contraintTicketWithoutTuesdayValidator->validate($date, new ContraintTicketWithoutTuesday));
+        $this->validator->validate($date, new ContraintTicketWithoutTuesday);
+        $this->assertNoViolation();
+    }
+    
+    protected function createValidator()
+    {
+        return new ContraintTicketWithoutTuesdayValidator();
     }
 }

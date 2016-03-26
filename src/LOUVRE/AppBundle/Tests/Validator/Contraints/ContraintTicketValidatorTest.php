@@ -3,27 +3,31 @@
 namespace LOUVRE\AppBundle\Validator\Contraints;
 
 use LOUVRE\AppBundle\Validator\Contraints;
+use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 
 
-class ContraintTicketValidatorTest extends \PHPUnit_Framework_TestCase
+class ContraintTicketValidatorTest extends AbstractConstraintValidatorTest
 {
     public function testValidTicket()
     {
-        $contraintTicketValidator = new ContraintTicketValidator();
         $timestamp = strtotime('today midnight') + 1;
-        $dateInit = date("Y-m-d H:i:s", $timestamp);
-        $date = strftime('%d-%m-%Y', strtotime(str_replace("-", "/", $dateInit)));
+        $date = date("Y-m-d H:i:s", $timestamp);
         
-        $this->assertEquals(true, $contraintTicketValidator->validate($date, new ContraintTicket));
+        $this->validator->validate($date, new ContraintTicket);
+        $this->assertNoViolation();
     }
     
     public function testNotValidTicket()
     {
-        $contraintTicketValidator = new ContraintTicketValidator();
         $timestamp = strtotime('today midnight') - 1;
-        $dateInit = date("Y-m-d H:i:s", $timestamp);
-        $date = strftime('%d-%m-%Y', strtotime(str_replace("-", "/", $dateInit)));
+        $date = date("Y-m-d H:i:s", $timestamp);
         
-        $this->assertEquals(false, $contraintTicketValidator->validate($date, new ContraintTicket));
+        $this->validator->validate($date, new ContraintTicket);
+        $this->assertNoViolation();
+    }
+    
+    protected function createValidator()
+    {
+        return new ContraintTicketValidator();
     }
 }

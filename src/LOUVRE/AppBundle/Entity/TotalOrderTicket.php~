@@ -36,7 +36,7 @@ class TotalOrderTicket
 
     /**
      * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\TotalOrder")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $totalOrder;
     

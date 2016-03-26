@@ -3,27 +3,34 @@
 namespace LOUVRE\AppBundle\Validator\Contraints;
 
 use LOUVRE\AppBundle\Validator\Contraints;
+use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 
-
-class ContraintTicketWithoutHolidayTest extends \PHPUnit_Framework_TestCase
+class ContraintTicketWithoutHolidayTest extends AbstractConstraintValidatorTest
 {
     public function testWithOutHoliday()
     {
-        $contraintTicketWithoutHolidayValidator = new ContraintTicketWithoutHolidayValidator();
-        $date = '15/07/2016'; 
+        $date = '2016-07-15'; 
         
-        $this->assertEquals(true, $contraintTicketWithoutHolidayValidator->validate($date, new ContraintTicketWithoutHoliday));
+        $this->validator->validate($date, new ContraintTicketWithoutHoliday);
+        $this->assertNoViolation();
     }
     
     public function testWithHoliday()
     {
-        $contraintTicketWithoutHolidayValidator = new ContraintTicketWithoutHolidayValidator();
-        $date1 = '01/05/2016'; 
-        $date2 = '01/11/2016'; 
-        $date3 = '25/12/2016'; 
+        $date1 = '2016-05-01'; 
+        $date2 = '2016-11-01'; 
+        $date3 = '2016-12-25'; 
         
-        $this->assertEquals(false, $contraintTicketWithoutHolidayValidator->validate($date1, new ContraintTicketWithoutHoliday));
-        $this->assertEquals(false, $contraintTicketWithoutHolidayValidator->validate($date2, new ContraintTicketWithoutHoliday));
-        $this->assertEquals(false, $contraintTicketWithoutHolidayValidator->validate($date3, new ContraintTicketWithoutHoliday));
+        $this->validator->validate($date1, new ContraintTicketWithoutHoliday);
+        $this->assertNoViolation();
+        $this->validator->validate($date2, new ContraintTicketWithoutHoliday);
+        $this->assertNoViolation();
+        $this->validator->validate($date3, new ContraintTicketWithoutHoliday);
+        $this->assertNoViolation();
+    }
+    
+    protected function createValidator()
+    {
+        return new ContraintTicketWithoutHolidayValidator();
     }
 }

@@ -36,9 +36,9 @@ class Ticket
     private $price;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="dayBook", type="string", length=255)
+     * @ORM\Column(name="dayBook", type="date")
      */
     private $dayBook;
 
