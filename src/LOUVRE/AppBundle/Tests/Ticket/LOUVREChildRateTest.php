@@ -1,8 +1,8 @@
 <?php
 
-namespace LOUVRE\AppBundle\Rate;
+namespace LOUVRE\AppBundle\Ticket;
 
-use LOUVRE\AppBundle\Rate;
+use LOUVRE\AppBundle\Ticket;
 
 
 class LOUVREChildRateTest extends \PHPUnit_Framework_TestCase

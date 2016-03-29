@@ -1,6 +1,6 @@
 <?php
 
-namespace LOUVRE\AppBundle\Rate;
+namespace LOUVRE\AppBundle\Ticket;
 
 class LOUVREChildRate
 {
