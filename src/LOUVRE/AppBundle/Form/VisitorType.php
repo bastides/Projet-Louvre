@@ -5,6 +5,9 @@ namespace LOUVRE\AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class VisitorType extends AbstractType
 {
@@ -15,11 +18,13 @@ class VisitorType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lastName')
-            ->add('firstName')
-            ->add('country')
-            ->add('birthDate', 'date')
-            ->add('reducedPrice')
+            ->add('lastName', TextType::class)
+            ->add('firstName', TextType::class)
+            ->add('country', TextType::class)
+            ->add('birthDate', DateType::class)
+            ->add('reducedPrice', CheckboxType::class, array(
+                'label'    => 'Tarif réduit ')
+            ->add('save', SubmitType::class, array('label' => 'Valider'))
         ;
     }
     

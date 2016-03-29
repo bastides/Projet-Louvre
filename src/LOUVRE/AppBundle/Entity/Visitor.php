@@ -24,14 +24,14 @@ class Visitor
     /**
      * @var string
      *
-     * @ORM\Column(name="lastName", type="string", length=255)
+     * @ORM\Column(name="lastname", type="string", length=255)
      */
     private $lastName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstName", type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255)
      */
     private $firstName;
 
@@ -45,17 +45,18 @@ class Visitor
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date")
+     * @ORM\Column(name="birth_date", type="date")
      */
     private $birthDate;
     
     /**
      * @var bool
      *
-     * @ORM\Column(name="reducedPrice", type="boolean")
+     * @ORM\Column(name="reduced_price", type="boolean")
      */
     private $reducedPrice;
 
+    
 
     /**
      * Get id

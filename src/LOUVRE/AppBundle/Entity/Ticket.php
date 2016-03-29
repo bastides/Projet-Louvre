@@ -20,6 +20,13 @@ class Ticket
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="day_book", type="date")
+     */
+    private $dayBook;
 
     /**
      * @var string
@@ -36,19 +43,25 @@ class Ticket
     private $price;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dayBook", type="date")
-     */
-    private $dayBook;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="bookingCode", type="string", length=255, unique=true, nullable=true)
+     * @ORM\Column(name="booking_code", type="string", length=255, unique=true, nullable=true)
      */
     private $bookingCode;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\OrderTickets", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $orderTickets;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="LOUVRE\AppBundle\Entity\Visitor", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $visitor;
+
+    
 
     /**
      * Get id
@@ -58,6 +71,29 @@ class Ticket
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set dayBook
+     *
+     * @param \DateTime $dayBook
+     * @return Ticket
+     */
+    public function setDayBook($dayBook)
+    {
+        $this->dayBook = $dayBook;
+
+        return $this;
+    }
+
+    /**
+     * Get dayBook
+     *
+     * @return \DateTime 
+     */
+    public function getDayBook()
+    {
+        return $this->dayBook;
     }
 
     /**
@@ -130,25 +166,48 @@ class Ticket
     }
 
     /**
-     * Set dayBook
+     * Set orderTickets
      *
-     * @param string $dayBook
+     * @param \LOUVRE\AppBundle\Entity\OrderTickets $orderTickets
      * @return Ticket
      */
-    public function setDayBook($dayBook)
+    public function setOrderTickets(\LOUVRE\AppBundle\Entity\OrderTickets $orderTickets)
     {
-        $this->dayBook = $dayBook;
+        $this->orderTickets = $orderTickets;
 
         return $this;
     }
 
     /**
-     * Get dayBook
+     * Get orderTickets
      *
-     * @return string 
+     * @return \LOUVRE\AppBundle\Entity\OrderTickets 
      */
-    public function getDayBook()
+    public function getOrderTickets()
     {
-        return $this->dayBook;
+        return $this->orderTickets;
+    }
+
+    /**
+     * Set visitor
+     *
+     * @param \LOUVRE\AppBundle\Entity\Visitor $visitor
+     * @return Ticket
+     */
+    public function setVisitor(\LOUVRE\AppBundle\Entity\Visitor $visitor = null)
+    {
+        $this->visitor = $visitor;
+
+        return $this;
+    }
+
+    /**
+     * Get visitor
+     *
+     * @return \LOUVRE\AppBundle\Entity\Visitor 
+     */
+    public function getVisitor()
+    {
+        return $this->visitor;
     }
 }

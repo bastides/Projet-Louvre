@@ -3,5 +3,11 @@ louvre_app_home:
     defaults: { _controller: LOUVREAppBundle:App:home }
 
 louvre_app_order:
-    path:     /Commande
+    path:     /commande
     defaults: { _controller: LOUVREAppBundle:App:order }
+    
+louvre_app_ordertickets:
+    path:     /commande/{orderNumber}
+    defaults: { _controller: LOUVREAppBundle:App:orderTickets }
+    requirements:
+        orderNumber: "(\d+)(LOUVRE)(\d+)"

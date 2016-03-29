@@ -20,6 +20,13 @@ class Ticket
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="day_book", type="date")
+     */
+    private $dayBook;
 
     /**
      * @var string
@@ -36,119 +43,23 @@ class Ticket
     private $price;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dayBook", type="date")
-     */
-    private $dayBook;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="bookingCode", type="string", length=255, unique=true, nullable=true)
+     * @ORM\Column(name="booking_code", type="string", length=255, unique=true, nullable=true)
      */
     private $bookingCode;
 
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\OrderTickets", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
+    private $orderTickets;
+    
     /**
-     * Set type
-     *
-     * @param string $type
-     * @return Ticket
+     * @ORM\OneToOne(targetEntity="LOUVRE\AppBundle\Entity\Visitor", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
      */
-    public function setType($type)
-    {
-        $this->type = $type;
+    private $visitor;
 
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set price
-     *
-     * @param integer $price
-     * @return Ticket
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return integer 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * Set bookingCode
-     *
-     * @param string $bookingCode
-     * @return Ticket
-     */
-    public function setBookingCode($bookingCode)
-    {
-        $this->bookingCode = $bookingCode;
-
-        return $this;
-    }
-
-    /**
-     * Get bookingCode
-     *
-     * @return string 
-     */
-    public function getBookingCode()
-    {
-        return $this->bookingCode;
-    }
-
-    /**
-     * Set dayBook
-     *
-     * @param string $dayBook
-     * @return Ticket
-     */
-    public function setDayBook($dayBook)
-    {
-        $this->dayBook = $dayBook;
-
-        return $this;
-    }
-
-    /**
-     * Get dayBook
-     *
-     * @return string 
-     */
-    public function getDayBook()
-    {
-        return $this->dayBook;
-    }
+    
 }
