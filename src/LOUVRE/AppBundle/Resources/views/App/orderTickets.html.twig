@@ -6,7 +6,58 @@
 
 {% block body %}
     <div class="container">
-        
+        <div class="row col-md-6">
+            {{ form_start(formV) }}
+            {{ form_errors(formV) }}
+
+                <div class="row">
+                    <div class="form-inline input-formV">
+                        {{ form_label(formV.lastName, "Nom :", {'label_attr': {'class': 'control-label col-md-4'}}) }}
+                        {{ form_errors(formV.lastName) }}
+                        
+                        {{ form_widget(formV.lastName, {'attr': {'class': 'form-control'}}) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="form-inline input-formV">
+                        {{ form_label(formV.firstName, "Prénom :", {'label_attr': {'class': 'control-label col-md-4'}}) }}
+                        {{ form_errors(formV.firstName) }}
+                        
+                        {{ form_widget(formV.firstName, {'attr': {'class': 'form-control'}}) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="form-inline input-formV">
+                        {{ form_label(formV.country, "Pays :", {'label_attr': {'class': 'control-label col-md-4'}}) }}
+                        {{ form_errors(formV.country) }}
+                        
+                        {{ form_widget(formV.country, {'attr': {'class': 'form-control'}}) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="form-inline input-formV">
+                        {{ form_label(formV.birthDate, "Date de naissance :", {'label_attr': {'class': 'control-label col-md-4'}}) }}
+                        {{ form_errors(formV.birthDate) }}
+                        
+                        {{ form_widget(formV.birthDate, {'attr': {'class': 'form-control', 'placeholder': '01/01/1990'}}) }}
+                        <p class="col-md-offset-6" id="info-date-format">Format : 01/01/1990</p>
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="form-inline input-formV">
+                        {{ form_label(formV.reducedPrice, "Tarif réduit :", {'label_attr': {'class': 'control-label col-md-4'}}) }}
+                        {{ form_errors(formV.reducedPrice) }}
+                        
+                        {{ form_widget(formV.reducedPrice) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    {{ form_widget(formV.save, {'attr': {'class': 'col-md-offset-6 col-md-2 btn btn-primary'}}) }}
+                </div>
+    
+            {{ form_rest(formV) }}
+            {{ form_end(formV) }}
+        </div>
     </div>
 {% endblock %}
 

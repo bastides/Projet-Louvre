@@ -10,4 +10,4 @@ louvre_app_ordertickets:
     path:     /commande/{orderNumber}
     defaults: { _controller: LOUVREAppBundle:App:orderTickets }
     requirements:
-        orderNumber: "(\d+)(LOUVRE)(\d+)"
+        orderNumber: "([A-Z])(\d+)(LOUVRE)(\d+)"

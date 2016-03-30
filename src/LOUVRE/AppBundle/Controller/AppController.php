@@ -25,23 +25,15 @@ class AppController extends Controller
         $formT = $this->get('form.factory')->create(TicketType::class, $ticket);
         
         if ($formT->handleRequest($request)->isValid()) {
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($ticket);            
-            $em->flush();
-            
-            // Récupère l'id du ticket venant d'être créé
-            $idOrder = $ticket->getOrderTickets()->getId();
             // Appel du service pour générer un numéro de commande
             $getOrderNumber = $this->container->get('louvre_app.ordernumber');
             // Généation du numéro de commande
-            $orderNumber = $getOrderNumber->generateNumber($idOrder);
-            // Récupère l'entité OrderTickets
-            $repository = $this->getDoctrine()->getManager()->getRepository('LOUVREAppBundle:OrderTickets');
+            $orderNumber = $getOrderNumber->generateNumber();
             // Enregistrement du numéro de commande
-            $orderTickets = $repository->find($idOrder);
-            $orderTickets->setOrderNumber($orderNumber);
-            $em->persist($orderTickets);            
+            $ticket->getOrderTickets()->setOrderNumber($orderNumber);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ticket);
             $em->flush();
             
             return $this->redirectToRoute('louvre_app_ordertickets', array(
@@ -55,6 +47,20 @@ class AppController extends Controller
     
     public function orderTicketsAction(Request $request) 
     {
-        return $this->render('LOUVREAppBundle:App:orderTickets.html.twig');
+        $visitor = new Visitor();
+        $formV = $this->get('form.factory')->create(VisitorType::class, $visitor);
+        
+        if ($formV->handleRequest($request)->isValid()) {
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($visitor);
+            $em->flush();
+            
+            return $this->redirectToRoute('louvre_app_order');
+        }
+        
+        return $this->render('LOUVREAppBundle:App:orderTickets.html.twig', array(
+            'formV' => $formV->createView()
+        ));
     }
 }

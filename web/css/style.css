@@ -166,6 +166,11 @@
 
 /* ------------------ ORDER PAGE ------------------ */
 
-.input-formT {
+.input-formT, .input-formV {
     margin-bottom: 10px;
+}
+
+#info-date-format {
+    color: gray;
+    font-size: 11px;
 }
