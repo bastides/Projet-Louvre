@@ -48,12 +48,6 @@ class Ticket
      * @ORM\Column(name="booking_code", type="string", length=255, unique=true, nullable=true)
      */
     private $bookingCode;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\OrderTickets", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $orderTickets;
     
     /**
      * @ORM\OneToOne(targetEntity="LOUVRE\AppBundle\Entity\Visitor", cascade={"persist"})
@@ -61,7 +55,7 @@ class Ticket
      */
     private $visitor;
 
-    
+   
 
     /**
      * Get id
@@ -163,29 +157,6 @@ class Ticket
     public function getBookingCode()
     {
         return $this->bookingCode;
-    }
-
-    /**
-     * Set orderTickets
-     *
-     * @param \LOUVRE\AppBundle\Entity\OrderTickets $orderTickets
-     * @return Ticket
-     */
-    public function setOrderTickets(\LOUVRE\AppBundle\Entity\OrderTickets $orderTickets)
-    {
-        $this->orderTickets = $orderTickets;
-
-        return $this;
-    }
-
-    /**
-     * Get orderTickets
-     *
-     * @return \LOUVRE\AppBundle\Entity\OrderTickets 
-     */
-    public function getOrderTickets()
-    {
-        return $this->orderTickets;
     }
 
     /**

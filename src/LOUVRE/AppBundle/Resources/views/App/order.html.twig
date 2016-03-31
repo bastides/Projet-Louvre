@@ -7,47 +7,47 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            {{ form_start(formT) }}
-            {{ form_errors(formT) }}
+            {{ form_start(formOT) }}
+            {{ form_errors(formOT) }}
 
                 <div class="row">
-                    <div class="form-inline input-formT">
-                        {{ form_label(formT.dayBook, "Date de réservation :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
-                        {{ form_errors(formT.dayBook) }}
+                    <div class="form-inline input-formOT">
+                        {{ form_label(formOT.ticket.dayBook, "Date de réservation :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formOT.ticket.dayBook) }}
                         
-                        {{ form_widget(formT.dayBook, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(formOT.ticket.dayBook, {'attr': {'class': 'form-control'}}) }}
                     </div>   
                 </div>
                 <div class="row">
-                    <div class="form-inline input-formT">
-                        {{ form_label(formT.type, "Type de billet :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
-                        {{ form_errors(formT.type) }}
+                    <div class="form-inline input-formOT">
+                        {{ form_label(formOT.ticket.type, "Type de billet :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formOT.ticket.type) }}
                         
-                        {{ form_widget(formT.type, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(formOT.ticket.type, {'attr': {'class': 'form-control'}}) }}
                     </div>   
                 </div>
                 <div class="row">
-                    <div class="form-inline input-formT">
-                        {{ form_label(formT.orderTickets.quantity, "Nombre de billets :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
-                        {{ form_errors(formT.orderTickets.quantity) }}
+                    <div class="form-inline input-formOT">
+                        {{ form_label(formOT.quantity, "Nombre de billets :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formOT.quantity) }}
                         
-                        {{ form_widget(formT.orderTickets.quantity, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(formOT.quantity, {'attr': {'class': 'form-control'}}) }}
                     </div>   
                 </div>
                 <div class="row">
-                    <div class="form-inline input-formT">
-                        {{ form_label(formT.orderTickets.email, "Email :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
-                        {{ form_errors(formT.orderTickets.email) }}
+                    <div class="form-inline input-formOT">
+                        {{ form_label(formOT.order.email, "Email :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formOT.order.email) }}
                         
-                        {{ form_widget(formT.orderTickets.email, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_widget(formOT.order.email, {'attr': {'class': 'form-control'}}) }}
                     </div>   
                 </div>
                 <div class="row">
-                    {{ form_widget(formT.save, {'attr': {'class': 'col-md-offset-3 col-md-1 btn btn-primary'}}) }}
+                    {{ form_widget(formOT.save, {'attr': {'class': 'col-md-offset-3 col-md-1 btn btn-primary'}}) }}
                 </div>
     
-            {{ form_rest(formT) }}
-            {{ form_end(formT) }}
+            {{ form_rest(formOT) }}
+            {{ form_end(formOT) }}
         </div>
     </div>
 {% endblock %}

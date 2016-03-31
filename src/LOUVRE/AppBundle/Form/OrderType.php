@@ -5,10 +5,9 @@ namespace LOUVRE\AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class TicketType extends AbstractType
+class OrderType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -17,12 +16,7 @@ class TicketType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dayBook', DateType::class, array(
-                'widget' => 'single_text', 'format' => 'dd/MM/yyyy'))
-            ->add('type', ChoiceType::class, array('choices'  => array(
-                'Journée' => 'Journée',
-                'Demi-journée' => 'Demi-journée'),
-                'choices_as_values' => true))
+            ->add('email', TextType::class)
         ;
     }
     
@@ -32,7 +26,7 @@ class TicketType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'LOUVRE\AppBundle\Entity\Ticket'
+            'data_class' => 'LOUVRE\AppBundle\Entity\Order'
         ));
     }
 }

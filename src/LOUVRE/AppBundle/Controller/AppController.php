@@ -6,10 +6,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use LOUVRE\AppBundle\Entity\Ticket;
-use LOUVRE\AppBundle\Entity\OrderTickets;
+use LOUVRE\AppBundle\Entity\OrderTicket;
+use LOUVRE\AppBundle\Entity\Order;
 use LOUVRE\AppBundle\Entity\Visitor;
 use LOUVRE\AppBundle\Form\TicketType;
-use LOUVRE\AppBundle\Form\OrderTicketsType;
+use LOUVRE\AppBundle\Form\OrderTicketType;
+use LOUVRE\AppBundle\Form\OrderType;
 use LOUVRE\AppBundle\Form\VisitorType;
 
 class AppController extends Controller
@@ -21,19 +23,19 @@ class AppController extends Controller
     
     public function orderAction(Request $request) 
     {
-        $ticket = new Ticket();
-        $formT = $this->get('form.factory')->create(TicketType::class, $ticket);
+        $orderTicket = new OrderTicket();
+        $formOT = $this->get('form.factory')->create(OrderTicketType::class, $orderTicket);
         
-        if ($formT->handleRequest($request)->isValid()) {
+        if ($formOT->handleRequest($request)->isValid()) {
             // Appel du service pour générer un numéro de commande
             $getOrderNumber = $this->container->get('louvre_app.ordernumber');
             // Généation du numéro de commande
             $orderNumber = $getOrderNumber->generateNumber();
             // Enregistrement du numéro de commande
-            $ticket->getOrderTickets()->setOrderNumber($orderNumber);
+            $orderTicket->getOrder()->setNumberOfOrder($orderNumber);
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($ticket);
+            $em->persist($orderTicket);
             $em->flush();
             
             return $this->redirectToRoute('louvre_app_ordertickets', array(
@@ -41,7 +43,7 @@ class AppController extends Controller
         }
         
         return $this->render('LOUVREAppBundle:App:order.html.twig', array(
-            'formT' => $formT->createView()
+            'formOT' => $formOT->createView()
         ));
     }
     

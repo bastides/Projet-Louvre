@@ -3,7 +3,7 @@ $(function() {
     
     $.datepicker.setDefaults( $.datepicker.regional[ 'fr' ] );
     
-    $("#ticket_dayBook").datepicker({
+    $("#order_ticket_ticket_dayBook").datepicker({
         minDate: 0,
         beforeShowDay: disableSpecificDates
     });
