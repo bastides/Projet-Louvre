@@ -5,14 +5,10 @@ namespace LOUVRE\AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use LOUVRE\AppBundle\Entity\Command;
+use LOUVRE\AppBundle\Form\CommandType;
 use LOUVRE\AppBundle\Entity\Ticket;
-use LOUVRE\AppBundle\Entity\OrderTicket;
-use LOUVRE\AppBundle\Entity\Order;
-use LOUVRE\AppBundle\Entity\Visitor;
 use LOUVRE\AppBundle\Form\TicketType;
-use LOUVRE\AppBundle\Form\OrderTicketType;
-use LOUVRE\AppBundle\Form\OrderType;
-use LOUVRE\AppBundle\Form\VisitorType;
 
 class AppController extends Controller
 {    
@@ -21,48 +17,35 @@ class AppController extends Controller
         return $this->render('LOUVREAppBundle:App:home.html.twig');
     }
     
-    public function orderAction(Request $request) 
+    public function commandAction(Request $request) 
     {
-        $orderTicket = new OrderTicket();
-        $formOT = $this->get('form.factory')->create(OrderTicketType::class, $orderTicket);
+        $command = new Command();
+        $formC = $this->get('form.factory')->create(CommandType::class, $command);
         
-        if ($formOT->handleRequest($request)->isValid()) {
+        if ($formC->handleRequest($request)->isValid()) {
             // Appel du service pour générer un numéro de commande
-            $getOrderNumber = $this->container->get('louvre_app.ordernumber');
+            $getBookingCode = $this->container->get('louvre_app.bookingcode');
             // Généation du numéro de commande
-            $orderNumber = $getOrderNumber->generateNumber();
+            $bookingCode = $getBookingCode->generateCode();
             // Enregistrement du numéro de commande
-            $orderTicket->getOrder()->setNumberOfOrder($orderNumber);
+            $command->setBookingCode($bookingCode);
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($orderTicket);
+            $em->persist($command);
             $em->flush();
             
-            return $this->redirectToRoute('louvre_app_ordertickets', array(
-                'orderNumber' => $orderNumber));
+            return $this->redirectToRoute('louvre_app_commandtickets', array(
+                'bookingCode' => $bookingCode
+            ));
         }
         
-        return $this->render('LOUVREAppBundle:App:order.html.twig', array(
-            'formOT' => $formOT->createView()
+        return $this->render('LOUVREAppBundle:App:command.html.twig', array(
+            'formC' => $formC->createView()
         ));
     }
     
-    public function orderTicketsAction(Request $request) 
-    {
-        $visitor = new Visitor();
-        $formV = $this->get('form.factory')->create(VisitorType::class, $visitor);
-        
-        if ($formV->handleRequest($request)->isValid()) {
-            
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($visitor);
-            $em->flush();
-            
-            return $this->redirectToRoute('louvre_app_order');
-        }
-        
-        return $this->render('LOUVREAppBundle:App:orderTickets.html.twig', array(
-            'formV' => $formV->createView()
-        ));
+    public function commandTicketsAction(Request $request, $orderNumber) 
+    {            
+        return $this->render('LOUVREAppBundle:App:commandTickets.html.twig');
     }
 }

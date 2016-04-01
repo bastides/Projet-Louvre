@@ -2,10 +2,10 @@
 
 namespace LOUVRE\AppBundle\Order;
 
-class LOUVREOrderNumber
+class LOUVREBookingCode
 {
     // Génère le numéro de commande
-    public function generateNumber()
+    public function generateCode()
     { 
         $randomNumber = rand(0, 1000);
         
@@ -15,8 +15,8 @@ class LOUVREOrderNumber
         
         $time = time();
         
-        $orderNumber = $letter . $randomNumber . 'LOUVRE' . $time;
+        $bookingCode = $letter . $randomNumber . 'LOUVRE' . $time;
         
-        return $orderNumber;
+        return $bookingCode;
     }
 }

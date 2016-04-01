@@ -17,5 +17,5 @@ services:
     louvre_app.thousand:
         class: LOUVRE\AppBundle\Ticket\LOUVREThousandTickets
     
-    louvre_app.ordernumber:
-        class: LOUVRE\AppBundle\Order\LOUVREOrderNumber
+    louvre_app.bookingcode:
+        class: LOUVRE\AppBundle\Command\LOUVREBookingCode

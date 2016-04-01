@@ -2,12 +2,12 @@ louvre_app_home:
     path:     /
     defaults: { _controller: LOUVREAppBundle:App:home }
 
-louvre_app_order:
+louvre_app_command:
     path:     /commande
-    defaults: { _controller: LOUVREAppBundle:App:order }
+    defaults: { _controller: LOUVREAppBundle:App:command }
     
-louvre_app_ordertickets:
-    path:     /commande/{orderNumber}
-    defaults: { _controller: LOUVREAppBundle:App:orderTickets }
+louvre_app_commandtickets:
+    path:     /commande/{bookingCode}
+    defaults: { _controller: LOUVREAppBundle:App:commandTickets }
     requirements:
         orderNumber: "([A-Z])(\d+)(LOUVRE)(\d+)"

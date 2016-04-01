@@ -20,42 +20,47 @@ class Ticket
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255)
+     */
+    private $lastname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255)
+     */
+    private $country;
+
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="day_book", type="date")
+     * @ORM\Column(name="birthDate", type="date")
      */
-    private $dayBook;
+    private $birthDate;
 
     /**
-     * @var string
+     * @var bool
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="reducedPrice", type="boolean")
      */
-    private $type;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="price", type="integer", nullable=true)
-     */
-    private $price;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="booking_code", type="string", length=255, unique=true, nullable=true)
-     */
-    private $bookingCode;
+    private $reducedPrice;
     
     /**
-     * @ORM\OneToOne(targetEntity="LOUVRE\AppBundle\Entity\Visitor", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Command", cascade={"persist"})
      */
-    private $visitor;
+    private $command;
 
-   
 
     /**
      * Get id
@@ -68,117 +73,140 @@ class Ticket
     }
 
     /**
-     * Set dayBook
+     * Set lastname
      *
-     * @param \DateTime $dayBook
+     * @param string $lastname
      * @return Ticket
      */
-    public function setDayBook($dayBook)
+    public function setLastname($lastname)
     {
-        $this->dayBook = $dayBook;
+        $this->lastname = $lastname;
 
         return $this;
     }
 
     /**
-     * Get dayBook
+     * Get lastname
+     *
+     * @return string 
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     * @return Ticket
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string 
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     * @return Ticket
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string 
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set birthDate
+     *
+     * @param \DateTime $birthDate
+     * @return Ticket
+     */
+    public function setBirthDate($birthDate)
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthDate
      *
      * @return \DateTime 
      */
-    public function getDayBook()
+    public function getBirthDate()
     {
-        return $this->dayBook;
+        return $this->birthDate;
     }
 
     /**
-     * Set type
+     * Set reducedPrice
      *
-     * @param string $type
+     * @param boolean $reducedPrice
      * @return Ticket
      */
-    public function setType($type)
+    public function setReducedPrice($reducedPrice)
     {
-        $this->type = $type;
+        $this->reducedPrice = $reducedPrice;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get reducedPrice
      *
-     * @return string 
+     * @return boolean 
      */
-    public function getType()
+    public function getReducedPrice()
     {
-        return $this->type;
+        return $this->reducedPrice;
     }
 
     /**
-     * Set price
+     * Set command
      *
-     * @param integer $price
+     * @param \LOUVRE\AppBundle\Entity\Command $command
      * @return Ticket
      */
-    public function setPrice($price)
+    public function setCommand(\LOUVRE\AppBundle\Entity\Command $command = null)
     {
-        $this->price = $price;
+        $this->command = $command;
 
         return $this;
     }
 
     /**
-     * Get price
+     * Get command
      *
-     * @return integer 
+     * @return \LOUVRE\AppBundle\Entity\Command 
      */
-    public function getPrice()
+    public function getCommand()
     {
-        return $this->price;
-    }
-
-    /**
-     * Set bookingCode
-     *
-     * @param string $bookingCode
-     * @return Ticket
-     */
-    public function setBookingCode($bookingCode)
-    {
-        $this->bookingCode = $bookingCode;
-
-        return $this;
-    }
-
-    /**
-     * Get bookingCode
-     *
-     * @return string 
-     */
-    public function getBookingCode()
-    {
-        return $this->bookingCode;
-    }
-
-    /**
-     * Set visitor
-     *
-     * @param \LOUVRE\AppBundle\Entity\Visitor $visitor
-     * @return Ticket
-     */
-    public function setVisitor(\LOUVRE\AppBundle\Entity\Visitor $visitor = null)
-    {
-        $this->visitor = $visitor;
-
-        return $this;
-    }
-
-    /**
-     * Get visitor
-     *
-     * @return \LOUVRE\AppBundle\Entity\Visitor 
-     */
-    public function getVisitor()
-    {
-        return $this->visitor;
+        return $this->command;
     }
 }

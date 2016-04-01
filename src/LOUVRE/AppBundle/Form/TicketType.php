@@ -5,8 +5,10 @@ namespace LOUVRE\AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class TicketType extends AbstractType
 {
@@ -17,12 +19,16 @@ class TicketType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dayBook', DateType::class, array(
-                'widget' => 'single_text', 'format' => 'dd/MM/yyyy'))
-            ->add('type', ChoiceType::class, array('choices'  => array(
-                'Journée' => 'Journée',
-                'Demi-journée' => 'Demi-journée'),
-                'choices_as_values' => true))
+            ->add('lastname', TextType::class)
+            ->add('firstname', TextType::class)
+            ->add('country', TextType::class)
+            ->add('birthDate', DateType::class, array(
+                'widget' => 'single_text', 
+                'format' => 'dd/MM/yyyy'))
+            ->add('reducedPrice', CheckboxType::class, array(
+                'label' => 'Tarif réduit ',
+                'required'  =>  false))
+            ->add('save', SubmitType::class, array('label' => 'Valider'))
         ;
     }
     

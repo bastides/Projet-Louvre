@@ -1,0 +1,55 @@
+{% extends "LOUVREAppBundle::layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Commande {% endblock %}
+
+{% block stylesheets %} {{ parent() }} {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {{ form_start(formC) }}
+            {{ form_errors(formC) }}
+
+                <div class="row">
+                    <div class="form-inline input-formC">
+                        {{ form_label(formC.bookingDay, "Date de réservation :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formC.bookingDay) }}
+                        
+                        {{ form_widget(formC.bookingDay, {'attr': {'class': 'form-control'}}) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="form-inline input-formC">
+                        {{ form_label(formC.ticketType, "Type de billet :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formC.ticketType) }}
+                        
+                        {{ form_widget(formC.ticketType, {'attr': {'class': 'form-control'}}) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="form-inline input-formC">
+                        {{ form_label(formC.quantity, "Nombre de billets :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formC.quantity) }}
+                        
+                        {{ form_widget(formC.quantity, {'attr': {'class': 'form-control'}}) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    <div class="form-inline input-formC">
+                        {{ form_label(formC.email, "Email :", {'label_attr': {'class': 'control-label col-md-2'}}) }}
+                        {{ form_errors(formC.email) }}
+                        
+                        {{ form_widget(formC.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>   
+                </div>
+                <div class="row">
+                    {{ form_widget(formC.save, {'attr': {'class': 'col-md-offset-3 col-md-1 btn btn-primary'}}) }}
+                </div>
+    
+            {{ form_rest(formC) }}
+            {{ form_end(formC) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %} {{ parent() }} {% endblock %}
