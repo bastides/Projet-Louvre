@@ -9,6 +9,7 @@ use LOUVRE\AppBundle\Entity\Command;
 use LOUVRE\AppBundle\Form\CommandType;
 use LOUVRE\AppBundle\Entity\Ticket;
 use LOUVRE\AppBundle\Form\TicketType;
+use LOUVRE\AppBundle\Form\TicketsType;
 
 class AppController extends Controller
 {    
@@ -20,9 +21,11 @@ class AppController extends Controller
     public function commandAction(Request $request) 
     {
         $command = new Command();
+        
         $formC = $this->get('form.factory')->create(CommandType::class, $command);
         
         if ($formC->handleRequest($request)->isValid()) {
+            
             // Appel du service pour générer un numéro de commande
             $getBookingCode = $this->container->get('louvre_app.bookingcode');
             // Généation du numéro de commande
@@ -44,8 +47,40 @@ class AppController extends Controller
         ));
     }
     
-    public function commandTicketsAction(Request $request, $orderNumber) 
-    {            
-        return $this->render('LOUVREAppBundle:App:commandTickets.html.twig');
+    public function commandTicketsAction(Request $request, $bookingCode) 
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        // Récupération de la commande en cours
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
+            ->findOneBy(array('bookingCode' => $bookingCode));
+        
+        // Récupération du nombre de billets
+        $quantity = $currentCommand->getQuantity();
+        
+        // Création et stockage des billets dans l'arrayCollection
+        for ($i =  0; $i < $quantity; $i++) {
+            $ticket = new Ticket();
+            $ticket->setCommand($currentCommand);
+            $currentCommand->addTicket($ticket);
+        }
+        
+        if (null === $currentCommand) {
+            throw new Exception("Cette commande n'existe pas !");
+        }
+        
+        // Récupération de la liste des billets
+        $listTickets = $currentCommand->getTickets();
+        
+        $formT = $this->get('form.factory')->create(TicketsType::class, $listTickets);
+        
+        if ($formT->handleRequest($request)->isValid()) {
+            
+            return $this->redirectToRoute('louvre_app_home');
+        }
+        
+        return $this->render('LOUVREAppBundle:App:commandTickets.html.twig', array(
+            'formT' => $formT->createView()
+        ));
     }
 }

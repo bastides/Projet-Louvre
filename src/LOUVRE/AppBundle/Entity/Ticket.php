@@ -24,40 +24,40 @@ class Ticket
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
     private $lastname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="country", type="string", length=255)
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
      */
     private $country;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date")
+     * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
     private $birthDate;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="reducedPrice", type="boolean")
+     * @ORM\Column(name="reducedPrice", type="boolean", nullable=true)
      */
     private $reducedPrice;
     
     /**
-     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Command", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Command", inversedBy="tickets", cascade={"persist"})
      */
     private $command;
 

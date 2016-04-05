@@ -59,7 +59,7 @@ class Command
     
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Ticket", mappedBy="command")
+     * @ORM\OneToMany(targetEntity="Ticket", mappedBy="command", cascade={"persist"})
      */
     private $tickets;
     
@@ -195,18 +195,27 @@ class Command
         return $this->bookingCode;
     }
     
+    /**
+     * Get tickets
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
+    }
     
+        
     public function addTicket(Ticket $ticket)
     {
         $this->tickets[] = $ticket;
 
         return $this;
     }
+    
 
     public function removeTicket(Ticket $ticket)
     {
         $this->tickets->removeElement($ticket);
     }
-    
-    
 }

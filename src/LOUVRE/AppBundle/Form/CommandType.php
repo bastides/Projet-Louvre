@@ -30,10 +30,6 @@ class CommandType extends AbstractType
                 'choices_as_values' => true))
             ->add('quantity', IntegerType::class)
             ->add('email', TextType::class)
-            ->add('tickets', CollectionType::class, array(
-                'entry_type' => TicketType::class,
-                'allow_add' => true
-            ));
             ->add('save', SubmitType::class, array('label' => 'Valider'))
         ;
     }

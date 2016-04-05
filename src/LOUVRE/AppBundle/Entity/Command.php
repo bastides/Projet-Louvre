@@ -59,7 +59,7 @@ class Command
     
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="Ticket", mappedBy="command")
+     * @ORM\OneToMany(targetEntity="Ticket", mappedBy="command", cascade={"persist"})
      */
     private $tickets;
     

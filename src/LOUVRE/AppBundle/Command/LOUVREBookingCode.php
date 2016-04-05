@@ -1,6 +1,6 @@
 <?php
 
-namespace LOUVRE\AppBundle\Order;
+namespace LOUVRE\AppBundle\Command;
 
 class LOUVREBookingCode
 {
