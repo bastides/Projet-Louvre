@@ -3,6 +3,7 @@
 namespace LOUVRE\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use LOUVRE\AppBundle\Entity\Command;
@@ -67,14 +68,15 @@ class AppController extends Controller
         if (null === $currentCommand) {
             throw new Exception("Cette commande n'existe pas !");
         }
-        
-        // Récupération de la liste des billets
-        $listTickets = $currentCommand->getTickets();
+
         
         $formC = $this->get('form.factory')->create(CommandType::class, $currentCommand);
         
         if ($formC->handleRequest($request)->isValid()) {
             
+            $em->persist($currentCommand);
+            $em->flush();
+
             return $this->redirectToRoute('louvre_app_home');
         }
         

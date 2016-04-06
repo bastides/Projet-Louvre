@@ -6,12 +6,18 @@
 
 {% block body %}
     <div class="container">
-       
-           <div class="row">
+
+        {{ form_start(formC) }}
+        {{ form_errors(formC) }}
+
+            {% for ticket in formC.tickets %}
+
                 {{ form_widget(formC) }}
-            </div>
-            
-   
+
+            {% endfor %}
+
+        {{ form_rest(formC) }}
+        {{ form_end(formC) }}
     </div>
 {% endblock %}
 

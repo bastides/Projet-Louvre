@@ -30,8 +30,8 @@ class CommandType extends AbstractType
                 'Journée' => 'Journée',
                 'Demi-journée' => 'Demi-journée'),
                 'choices_as_values' => true))
-            ->add('email', TextType::class)
             ->add('quantity', IntegerType::class)
+            ->add('email', TextType::class)
             ->add('tickets', CollectionType::class, array(
                 'entry_type' => TicketType::class ,
                 'allow_add' => true
@@ -40,7 +40,6 @@ class CommandType extends AbstractType
         ;
         
         $builder->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'));
-        $builder->addEventListener(FormEvents::POST_SUBMIT, array($this, 'onPostSubmit'));
     }
     
     public function onPreSetData(FormEvent $event) {
@@ -49,11 +48,12 @@ class CommandType extends AbstractType
 
         if ($data->getTickets()->isEmpty()) {
             $form->remove('tickets');
+        } else {
+            $form->remove('bookingDay');
+            $form->remove('ticketType');
+            $form->remove('quantity');
+            $form->remove('email');
         }
-    }
-    
-    public function onPostSubmit(FormEvent $event) {
-        
     }
     
     /**
