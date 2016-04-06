@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use LOUVRE\AppBundle\Form\TicketType;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class CommandType extends AbstractType
 {
@@ -28,10 +30,30 @@ class CommandType extends AbstractType
                 'Journée' => 'Journée',
                 'Demi-journée' => 'Demi-journée'),
                 'choices_as_values' => true))
-            ->add('quantity', IntegerType::class)
             ->add('email', TextType::class)
+            ->add('quantity', IntegerType::class)
+            ->add('tickets', CollectionType::class, array(
+                'entry_type' => TicketType::class ,
+                'allow_add' => true
+            ))
             ->add('save', SubmitType::class, array('label' => 'Valider'))
         ;
+        
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'));
+        $builder->addEventListener(FormEvents::POST_SUBMIT, array($this, 'onPostSubmit'));
+    }
+    
+    public function onPreSetData(FormEvent $event) {
+        $data = $event->getData();
+        $form = $event->getForm();
+
+        if ($data->getTickets()->isEmpty()) {
+            $form->remove('tickets');
+        }
+    }
+    
+    public function onPostSubmit(FormEvent $event) {
+        
     }
     
     /**

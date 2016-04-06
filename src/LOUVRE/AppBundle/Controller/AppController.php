@@ -9,7 +9,6 @@ use LOUVRE\AppBundle\Entity\Command;
 use LOUVRE\AppBundle\Form\CommandType;
 use LOUVRE\AppBundle\Entity\Ticket;
 use LOUVRE\AppBundle\Form\TicketType;
-use LOUVRE\AppBundle\Form\TicketsType;
 
 class AppController extends Controller
 {    
@@ -57,7 +56,7 @@ class AppController extends Controller
         
         // Récupération du nombre de billets
         $quantity = $currentCommand->getQuantity();
-        
+            
         // Création et stockage des billets dans l'arrayCollection
         for ($i =  0; $i < $quantity; $i++) {
             $ticket = new Ticket();
@@ -72,15 +71,15 @@ class AppController extends Controller
         // Récupération de la liste des billets
         $listTickets = $currentCommand->getTickets();
         
-        $formT = $this->get('form.factory')->create(TicketsType::class, $listTickets);
+        $formC = $this->get('form.factory')->create(CommandType::class, $currentCommand);
         
-        if ($formT->handleRequest($request)->isValid()) {
+        if ($formC->handleRequest($request)->isValid()) {
             
             return $this->redirectToRoute('louvre_app_home');
         }
         
         return $this->render('LOUVREAppBundle:App:commandTickets.html.twig', array(
-            'formT' => $formT->createView()
+            'formC' => $formC->createView()
         ));
     }
 }
