@@ -164,13 +164,19 @@
 
 /* ------------------ HOMEPAGE FIN ------------------ */
 
-/* ------------------ ORDER PAGE ------------------ */
+/* ------------------ COMMAND PAGE ------------------ */
 
 .input-formC {
     margin-bottom: 10px;
 }
 
-#info-date-format {
-    color: gray;
-    font-size: 11px;
+#command_save {
+    margin-top: 50px;
+}
+
+.inputs-area {
+    background-color: #efefef;
+    margin-top: 10px;
+    padding: 40px;
+    border-radius: 5px;
 }
