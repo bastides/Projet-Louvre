@@ -1,20 +1,21 @@
 <?php
 
-namespace LOUVRE\AppBundle\Validator\Contraints;
+namespace LOUVRE\AppBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
-class ContraintTicketWithoutTuesdayValidator extends ConstraintValidator
+class ConstraintTicketWithoutTuesdayValidator extends ConstraintValidator
 {
     // Renvoie false si le billet est acheter pour un mardi
     public function validate($dateTime, Constraint $constraint)
     {
-        $date = strftime('%A %d %B', strtotime($dateTime));
+        $timestamp = $dateTime->getTimestamp();
+        $date = strftime('%A %d %B', $timestamp);
         $tuesday = explode(" ", $date);
 
         if ($tuesday[0] === "Tuesday") {
-            $this->context->buildViolation($constraint->message);
+            $this->context->addViolation($constraint->message);
         }
     }
 }

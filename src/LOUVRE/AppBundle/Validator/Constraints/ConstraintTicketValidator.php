@@ -1,21 +1,21 @@
 <?php
 
-namespace LOUVRE\AppBundle\Validator\Contraints;
+namespace LOUVRE\AppBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
-class ContraintTicketValidator extends ConstraintValidator
+class ConstraintTicketValidator extends ConstraintValidator
 {
     // Renvoie false si le billet est acheté à une date antérieur à aujourd'hui
     public function validate($date, Constraint $constraint)
     {        
         $todayMidnight = strtotime('today midnight');
         
-        $currentTime = strtotime($date);
+        $currentTime = $date->getTimestamp();
         
         if ($currentTime < $todayMidnight) {
-            $this->context->buildViolation($constraint->message);
+            $this->context->addViolation($constraint->message);
         }
     }
 }

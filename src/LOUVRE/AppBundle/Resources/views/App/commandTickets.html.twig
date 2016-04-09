@@ -14,33 +14,28 @@
                 <div class="col-sm-6 inputs-area">
                     <div class="row form-inline input-formC">
                         {{ form_label(ticket.lastname, "Nom :", {'label_attr': {'class': 'control-label col-sm-12 col-md-5'}}) }}
-                        {{ form_errors(ticket.lastname) }}
-
                         {{ form_widget(ticket.lastname, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(ticket.lastname) }}
                     </div>
                     <div class="row form-inline input-formC">
                         {{ form_label(ticket.firstname, "Prénom :", {'label_attr': {'class': 'control-label col-sm-12 col-md-5'}}) }}
-                        {{ form_errors(ticket.firstname) }}
-
                         {{ form_widget(ticket.firstname, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(ticket.firstname) }}
                     </div>
                     <div class="row form-inline input-formC">
                         {{ form_label(ticket.country, "Pays :", {'label_attr': {'class': 'control-label col-sm-12 col-md-5'}}) }}
-                        {{ form_errors(ticket.country) }}
-
                         {{ form_widget(ticket.country, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(ticket.country) }}
                     </div>
                     <div class="row form-inline input-formC">
                         {{ form_label(ticket.birthDate, "Date de naissance :", {'label_attr': {'class': 'control-label col-sm-12 col-md-5'}}) }}
-                        {{ form_errors(ticket.birthDate) }}
-
                         {{ form_widget(ticket.birthDate) }}
+                        {{ form_errors(ticket.birthDate) }}
                     </div>
                     <div class="row form-inline input-formC">
                         {{ form_label(ticket.reducedPrice, "Tarif réduit :", {'label_attr': {'class': 'control-label     col-md-5'}}) }}
-                        {{ form_errors(ticket.reducedPrice) }}
-
                         {{ form_widget(ticket.reducedPrice) }}
+                        {{ form_errors(ticket.reducedPrice) }}
                     </div>
                 </div>
             {% endfor %}

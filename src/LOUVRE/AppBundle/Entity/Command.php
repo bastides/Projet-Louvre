@@ -4,6 +4,10 @@ namespace LOUVRE\AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use LOUVRE\AppBundle\Validator\Constraints\ConstraintTicket;
+use LOUVRE\AppBundle\Validator\Constraints\ConstraintTicketWithoutHoliday;
+use LOUVRE\AppBundle\Validator\Constraints\ConstraintTicketWithoutTuesday;
 
 /**
  * Command
@@ -24,6 +28,12 @@ class Command
 
     /**
      * @var \DateTime
+     * 
+     * @Assert\Date(message = "Vous devez entrer une date valide.")
+     *
+     * @ConstraintTicket()
+     * @ConstraintTicketWithoutHoliday()
+     * @ConstraintTicketWithoutTuesday()
      *
      * @ORM\Column(name="bookingDay", type="date")
      */
@@ -31,6 +41,7 @@ class Command
 
     /**
      * @var string
+     * @Assert\Type(type="string")
      *
      * @ORM\Column(name="ticketType", type="string", length=255)
      */
@@ -38,13 +49,26 @@ class Command
 
     /**
      * @var int
-     *
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 50,
+     *      minMessage = "Vous devez commander au moins {{ limit }} billet",
+     *      maxMessage = "Vous ne pouvez pas commander plus de {{ limit }} billets"
+     * )
+     * @Assert\Type(
+     *     type="integer",
+     *     message="Le nombre de billets entré doit être un chiffre."
+     * )
      * @ORM\Column(name="quantity", type="integer")
      */
     private $quantity;
 
     /**
      * @var string
+     * @Assert\Email(
+     *     message = "Votre Email '{{ value }}' n'est pas valide.",
+     *     checkMX = true
+     * )
      *
      * @ORM\Column(name="email", type="string", length=255)
      */

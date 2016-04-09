@@ -1,33 +1,33 @@
 <?php
 
-namespace LOUVRE\AppBundle\Validator\Contraints;
+namespace LOUVRE\AppBundle\Validator\Constraints;
 
-use LOUVRE\AppBundle\Validator\Contraints;
+use LOUVRE\AppBundle\Validator\Constraints;
 use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 
 
-class ContraintTicketValidatorTest extends AbstractConstraintValidatorTest
+class ConstraintTicketValidatorTest extends AbstractConstraintValidatorTest
 {
     public function testValidTicket()
     {
         $timestamp = strtotime('today midnight') + 1;
-        $date = date("Y-m-d H:i:s", $timestamp);
+        $date = new \DateTime('@' . $timestamp);
         
-        $this->validator->validate($date, new ContraintTicket);
+        $this->validator->validate($date, new ConstraintTicket);
         $this->assertNoViolation();
     }
     
     public function testNotValidTicket()
     {
         $timestamp = strtotime('today midnight') - 1;
-        $date = date("Y-m-d H:i:s", $timestamp);
+        $date = new \DateTime('@' . $timestamp);
         
-        $this->validator->validate($date, new ContraintTicket);
+        $this->validator->validate($date, new ConstraintTicket);
         $this->assertNoViolation();
     }
     
     protected function createValidator()
     {
-        return new ContraintTicketValidator();
+        return new ConstraintTicketValidator();
     }
 }
