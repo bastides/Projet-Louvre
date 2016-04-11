@@ -3,6 +3,7 @@
 namespace LOUVRE\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Ticket
@@ -23,6 +24,12 @@ class Ticket
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Votre nom doit comprendre au moins {{ limit }} caractères",
+     *      maxMessage = "Votre nom ne doit pas comprendre plus {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="lastname", type="string", length=255, nullable=true)
      */
@@ -30,6 +37,12 @@ class Ticket
 
     /**
      * @var string
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Votre prénom doit comprendre au moins {{ limit }} caractères",
+     *      maxMessage = "Votre prénom ne doit pas comprendre plus {{ limit }} caractères"
+     * )
      *
      * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
      */
@@ -37,6 +50,7 @@ class Ticket
 
     /**
      * @var string
+     * @Assert\Type(type="string")
      *
      * @ORM\Column(name="country", type="string", length=255, nullable=true)
      */
@@ -44,6 +58,7 @@ class Ticket
 
     /**
      * @var \DateTime
+     * @Assert\Date(message = "Vous devez entrer une date valide.")
      *
      * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
@@ -51,10 +66,18 @@ class Ticket
 
     /**
      * @var bool
+     * @Assert\Type(type="bool")
      *
      * @ORM\Column(name="reducedPrice", type="boolean", nullable=true)
      */
     private $reducedPrice;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="decimal", scale=2, nullable=true)
+     */
+    private $price;
     
     /**
      * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Command", inversedBy="tickets", cascade={"persist"})
@@ -209,4 +232,5 @@ class Ticket
     {
         return $this->command;
     }
+    
 }

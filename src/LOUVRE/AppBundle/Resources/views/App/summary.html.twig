@@ -1,0 +1,54 @@
+{% extends "LOUVREAppBundle::layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Récapitulatif {% endblock %}
+
+{% block stylesheets %} {{ parent() }} {% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div class="row">
+            <h2>Votre commande</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8" id="summary">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th id="table-head">Commande N° {{ command.bookingCode }}</th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    <tr>
+                        <td>Billet standard BASTIDE Sébastien</td>
+                        <td class="text-center"> 12 € </td>
+                    </tr>
+                    <tr>
+                        <td>Billet enfant BASTIDE Sébastien</td>
+                        <td class="text-center"> 08 € </td>
+                    </tr>
+                    <tr>
+                        <td>Billet réduit BASTIDE Sébastien</td>
+                        <td class="text-center"> 10 € </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-right">Total</td>
+                        <td class="text-center"> 30 € </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row" id="summary-button">
+            <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+                <a href="{{ path('louvre_app_home') }}" class="btn btn-primary btn-block text-center">Régler</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %} {{ parent() }} {% endblock %}

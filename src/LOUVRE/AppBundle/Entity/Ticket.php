@@ -71,6 +71,13 @@ class Ticket
      * @ORM\Column(name="reducedPrice", type="boolean", nullable=true)
      */
     private $reducedPrice;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="decimal", scale=2, nullable=true)
+     */
+    private $price;
     
     /**
      * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Command", inversedBy="tickets", cascade={"persist"})
@@ -224,5 +231,29 @@ class Ticket
     public function getCommand()
     {
         return $this->command;
+    }
+    
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     * @return Ticket
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

@@ -77,11 +77,53 @@ class AppController extends Controller
             $em->persist($currentCommand);
             $em->flush();
 
-            return $this->redirectToRoute('louvre_app_home');
+            return $this->redirectToRoute('louvre_app_summary', array(
+                'bookingCode' => $bookingCode
+            ));
         }
         
         return $this->render('LOUVREAppBundle:App:commandTickets.html.twig', array(
             'formC' => $formC->createView()
+        ));
+    }
+
+    public function summaryAction(Request $request, $bookingCode)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        // Récupération de la commande en cours
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
+            ->findOneBy(array('bookingCode' => $bookingCode));
+
+        // Récupération de la liste des billets
+        $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
+            ->findBy(array('command' => $currentCommand));
+
+        // Appel du service pour générer le prix du billet
+        $getPrice = $this->container->get('louvre_app.getprice');
+
+        // Appel du service pour le tarif famille
+        $getFamily = $this->container->get('louvre_app.family');
+
+        if ($currentCommand->getQuantity() === 4 && $getFamily->isFamily($listTickets) === true) {
+            foreach ($listTickets as $ticket) {
+                $ticket->setPrice(8.75);
+                $em->persist($ticket);
+            }
+        } else {
+            foreach ($listTickets as $ticket) {
+                $date = $ticket->getBirthDate();
+                $ticket->setPrice($getPrice->isPrice($date));
+                if ($ticket->getReducedPrice() === true) {
+                    $ticket->setPrice(10);
+                }
+                $em->persist($ticket);
+            }
+        }
+        $em->flush();
+
+        return $this->render('LOUVREAppBundle:App:summary.html.twig', array(
+            'command' => $currentCommand
         ));
     }
 }

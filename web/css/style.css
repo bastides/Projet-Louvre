@@ -180,3 +180,34 @@
     padding: 40px;
     border-radius: 5px;
 }
+
+/* ------------------ COMMAND FIN ------------------ */
+
+/* ------------------ SUMMARY PAGE ------------------ */
+
+#summary {
+    background-color: #efefef;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 5px;
+}
+
+#summary p {
+    margin-bottom: 0px;
+}
+
+#table-head {
+    background-color: #221e1f;
+    color: white;
+    font-size: 18px;
+}
+
+#table-body {
+    background-color: white;
+    color: #221e1f;
+    font-size: 16px;
+}
+
+#summary-button {
+    margin-top: 40px;
+}

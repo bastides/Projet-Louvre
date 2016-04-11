@@ -11,3 +11,9 @@ louvre_app_commandtickets:
     defaults: { _controller: LOUVREAppBundle:App:commandTickets }
     requirements:
         orderNumber: "([A-Z])(\d+)(LOUVRE)(\d+)"
+
+louvre_app_summary:
+    path:     /summary/{bookingCode}
+    defaults: { _controller: LOUVREAppBundle:App:summary }
+    requirements:
+        orderNumber: "([A-Z])(\d+)(LOUVRE)(\d+)"

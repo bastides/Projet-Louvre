@@ -1,21 +1,26 @@
 services:
     louvre_app.toddler:
-        class: LOUVRE\AppBundle\Rate\LOUVREToddlerRate
+        class: LOUVRE\AppBundle\Ticket\LOUVREToddlerPrice
 
     louvre_app.child:
-        class: LOUVRE\AppBundle\Rate\LOUVREChildRate
+        class: LOUVRE\AppBundle\Ticket\LOUVREChildPrice
         
     louvre_app.senior:
-        class: LOUVRE\AppBundle\Rate\LOUVRESeniorRate
+        class: LOUVRE\AppBundle\Ticket\LOUVRESeniorPrice
         
     louvre_app.family:
-        class: LOUVRE\AppBundle\Rate\LOUVREFamilyRate
+        class: LOUVRE\AppBundle\Ticket\LOUVREFamilyPrice
+        arguments: ['@louvre_app.child']
         
     louvre_app.half:
         class: LOUVRE\AppBundle\Ticket\LOUVREHalfTicket
         
     louvre_app.thousand:
         class: LOUVRE\AppBundle\Ticket\LOUVREThousandTickets
+
+    louvre_app.getprice:
+        class: LOUVRE\AppBundle\Ticket\LOUVREGetPrice
+        arguments: ['@louvre_app.toddler', '@louvre_app.child', '@louvre_app.senior']
     
     louvre_app.bookingcode:
         class: LOUVRE\AppBundle\Command\LOUVREBookingCode
