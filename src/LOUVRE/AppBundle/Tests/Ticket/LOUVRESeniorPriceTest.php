@@ -10,7 +10,7 @@ class LOUVRESeniorPriceTest extends \PHPUnit_Framework_TestCase
     public function testIsSenior()
     {
         $louvreSeniorPrice = new LOUVRESeniorPrice();
-        $date = '1955-07-21 13:55:33';
+        $date = new \DateTime('1955-07-21');
         
         $this->assertEquals(true, $louvreSeniorPrice->isSenior($date));
     }
@@ -18,7 +18,7 @@ class LOUVRESeniorPriceTest extends \PHPUnit_Framework_TestCase
     public function testIsNotSenior()
     {
         $louvreSeniorPrice = new LOUVRESeniorPrice();
-        $date = '1957-01-21 13:55:33';
+        $date = new \DateTime('1957-01-21');
         
         $this->assertEquals(false, $louvreSeniorPrice->isSenior($date));
     }

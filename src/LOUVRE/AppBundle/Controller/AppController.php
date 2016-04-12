@@ -3,6 +3,7 @@
 namespace LOUVRE\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Acl\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,11 +22,23 @@ class AppController extends Controller
     public function commandAction(Request $request) 
     {
         $command = new Command();
-        
         $formC = $this->get('form.factory')->create(CommandType::class, $command);
         
         if ($formC->handleRequest($request)->isValid()) {
-            
+
+            // ---------- LIMITATION DE 1000 BILLETS POUR UNE DATE ----------
+            // Appel du service empechant la commande de 1000 billets pour le même jour
+            $getThousandTickets = $this->container->get('louvre_app.thousand');
+            // Récupération de la date de réservation entrée par l'utilisateur
+            $getBookingDay = $formC->get('bookingDay')->getData();
+            // Récupération de la quantité de billets entrée par l'utilisateur
+            $getQuantity = $formC->get('quantity')->getData();
+
+            if ($getThousandTickets->isThousandTickets($getBookingDay, $getQuantity) === true) {
+                throw new Exception("Le musée est complet pour cette date !");
+            }
+
+            // ---------- GENERATION DU NUMERO DE COMMNDE ----------
             // Appel du service pour générer un numéro de commande
             $getBookingCode = $this->container->get('louvre_app.bookingcode');
             // Généation du numéro de commande
@@ -54,21 +67,33 @@ class AppController extends Controller
         // Récupération de la commande en cours
         $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
             ->findOneBy(array('bookingCode' => $bookingCode));
-        
+
+        // ---------- EMPECHER DE POUVOIR COMMANDER UN BILLET JOURNEE APRES 14H LE JOUR MEME ----------
+        // Appel du service HalfTicket
+        $getHalfTicket = $this->container->get('louvre_app.half');
+        // Récupération du type de billet
+        $ticketType = $currentCommand->getTicketType();
+        // Récupération de la date de réservation
+        $bookingDay = $currentCommand->getBookingDay();
+        // Date et heure actuelle
+        date_default_timezone_set('Europe/Paris');
+        $date = new \DateTime();
+
+        if (null === $currentCommand) {
+            throw new Exception("Cette commande n'existe pas !");
+        } elseif ($ticketType === 'Journée' && $getHalfTicket->isHalfTicket($date, $bookingDay) === true) {
+            throw new Exception("Vous ne pouvez pas acheter un billet journée après 14h pour cette date !");
+        }
+
+        // ---------- CREATION ET STOCKAGE DES BILLETS DANS L'ARRYCOLLECTION ----------
         // Récupération du nombre de billets
         $quantity = $currentCommand->getQuantity();
-            
         // Création et stockage des billets dans l'arrayCollection
         for ($i =  0; $i < $quantity; $i++) {
             $ticket = new Ticket();
             $ticket->setCommand($currentCommand);
             $currentCommand->addTicket($ticket);
         }
-        
-        if (null === $currentCommand) {
-            throw new Exception("Cette commande n'existe pas !");
-        }
-
         
         $formC = $this->get('form.factory')->create(CommandType::class, $currentCommand);
         
@@ -94,36 +119,50 @@ class AppController extends Controller
         // Récupération de la commande en cours
         $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
             ->findOneBy(array('bookingCode' => $bookingCode));
-
         // Récupération de la liste des billets
         $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
             ->findBy(array('command' => $currentCommand));
 
+        // ---------- GENERATION DES TARIFS ET NOMS DES BILLETS ----------
         // Appel du service pour générer le prix du billet
         $getPrice = $this->container->get('louvre_app.getprice');
-
         // Appel du service pour le tarif famille
         $getFamily = $this->container->get('louvre_app.family');
+        // Appel du service pour le nom du billet
+        $getName = $this->container->get('louvre_app.getname');
 
+        // Détermination du prix des billets
         if ($currentCommand->getQuantity() === 4 && $getFamily->isFamily($listTickets) === true) {
             foreach ($listTickets as $ticket) {
                 $ticket->setPrice(8.75);
+                $ticket->setTicketname('Billet famille');
                 $em->persist($ticket);
             }
         } else {
             foreach ($listTickets as $ticket) {
                 $date = $ticket->getBirthDate();
                 $ticket->setPrice($getPrice->isPrice($date));
+                $ticket->setTicketname($getName->isName($date));
                 if ($ticket->getReducedPrice() === true) {
                     $ticket->setPrice(10);
+                    $ticket->setTicketname('Billet réduit');
                 }
                 $em->persist($ticket);
             }
         }
+
+        // Calcul du montant total de tout les billets
+        $totalPrice = 0;
+        foreach ($listTickets as $ticket) {
+            $totalPrice += $ticket->getPrice();
+        }
+        $currentCommand->setTotalprice($totalPrice);
+        $em->persist($currentCommand);
         $em->flush();
 
         return $this->render('LOUVREAppBundle:App:summary.html.twig', array(
-            'command' => $currentCommand
+            'command' => $currentCommand,
+            'listTickets' => $listTickets
         ));
     }
 }

@@ -7,22 +7,36 @@ use LOUVRE\AppBundle\Ticket;
 
 class LOUVREHalfTicketTest extends \PHPUnit_Framework_TestCase
 {
-    public function testHalfTicket()
+    public function testIsHalfTicket()
     {
         $louvreHalfTicket = new LouvreHalfTicket();
-        $timestamp = strtotime('today midnight') + (60 * 60 * 14 - 1);
-        $date = date("Y-m-d H:i:s", $timestamp);
+
+        date_default_timezone_set('Europe/Paris');
+        $dateTime = new \DateTime('today 14:00:01');
+        $bookingDay = new \DateTime('today');
         
-        $this->assertEquals(true, $louvreHalfTicket->isHalfTicket($date));
+        $this->assertEquals(true, $louvreHalfTicket->isHalfTicket($dateTime, $bookingDay));
     }
     
     public function testIsNotHalfTicket()
     {
         $louvreHalfTicket = new LouvreHalfTicket();
-        $timestamp = strtotime('today midnight') + (60 * 60 * 14 + 1);
-        $date = date("Y-m-d H:i:s", $timestamp);
-        
-        $this->assertEquals(false, $louvreHalfTicket->isHalfTicket($date));
+
+        date_default_timezone_set('Europe/Paris');
+        $dateTime = new \DateTime('today 13:59:59');
+        $bookingDay = new \DateTime('2017-12-01');
+
+        $this->assertEquals(false, $louvreHalfTicket->isHalfTicket($dateTime, $bookingDay));
     }
-    
+
+    public function testIsNotHalfTicketWithSameDay()
+    {
+        $louvreHalfTicket = new LouvreHalfTicket();
+
+        date_default_timezone_set('Europe/Paris');
+        $dateTime = new \DateTime('today 13:59:59');
+        $bookingDay = new \DateTime('today');
+
+        $this->assertEquals(false, $louvreHalfTicket->isHalfTicket($dateTime, $bookingDay));
+    }
 }

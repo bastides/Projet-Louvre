@@ -20,22 +20,16 @@
                     </tr>
                     </thead>
                     <tbody id="table-body">
-                    <tr>
-                        <td>Billet standard BASTIDE Sébastien</td>
-                        <td class="text-center"> 12 € </td>
-                    </tr>
-                    <tr>
-                        <td>Billet enfant BASTIDE Sébastien</td>
-                        <td class="text-center"> 08 € </td>
-                    </tr>
-                    <tr>
-                        <td>Billet réduit BASTIDE Sébastien</td>
-                        <td class="text-center"> 10 € </td>
-                    </tr>
+                    {% for ticket in listTickets %}
+                        <tr>
+                            <td><span class="bold">{{ ticket.ticketname }}</span> {{ ticket.lastname }} {{ ticket.firstname }}</td>
+                            <td class="text-center"> {{ ticket.price }} € </td>
+                        </tr>
+                    {% endfor %}
 
                     <tr>
-                        <td class="text-right">Total</td>
-                        <td class="text-center"> 30 € </td>
+                        <td class="text-right bold">Total</td>
+                        <td class="text-center bold"> {{ command.totalprice }} € </td>
                     </tr>
                     </tbody>
                 </table>

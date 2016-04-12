@@ -2,23 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18e36593-0c97-4404-861b-ae41907d9eb7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREGetPrice.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorRateTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerRateTest.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildRateTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREFamilyRateTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREFamilyPriceTest.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildRate.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREFamilyRate.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREFamilyPrice.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorRate.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerRate.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRETicketsName.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREFamilyPriceTest.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREHalfTicketTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREHalfTicketTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREHalfTicket.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREHalfTicket.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREThousandTickets.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREThousandTickets.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <ignored path="Projet-Louvre.iws" />
@@ -40,23 +41,7 @@
     <favorites_list name="Projet-Louvre" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AppController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="119" column="38" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
-              <folding>
-                <element signature="e#47#104#0#PHP" expanded="true" />
-                <element signature="e#1850#1875#1#PHP" expanded="true" />
-                <element signature="e#3207#3232#1#PHP" expanded="true" />
-                <element signature="e#3388#3412#1#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,7 +51,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Form/TicketType.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Validator/Contraints/ContraintTicketWithoutTuesdayTest.php" />
         <option value="$PROJECT_DIR$/app/config/config_dev.yml" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/command.html.twig" />
@@ -83,30 +67,38 @@
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Validator/Constraints/ConstraintTicketWithoutTuesdayTest.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicket.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicketWithoutTuesday.php" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicketWithoutHolidayValidator.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicketWithoutTuesdayValidator.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildRate.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREFamilyRate.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorRate.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerRate.php" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREFamilyRateTest.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorRateTest.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerRateTest.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Validator/Constraints/ConstraintTicketValidatorTest.php" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicketValidator.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREGetPrice.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREFamilyPrice.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Entity/TicketTest.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREGetPrice.php" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREFamilyPrice.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREHalfTicket.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREHalfTicketTest.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREThousandTickets.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRETicketsName.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" />
       </list>
     </option>
   </component>
@@ -198,12 +190,12 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\Projet-Louvre\src\LOUVRE\AppBundle\Ticket" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Projet-Louvre\src\LOUVRE\AppBundle\Controller" />
       <recent name="C:\wamp64\www\Projet-Louvre\src\LOUVRE\AppBundle\Resources\views\App" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet-Louvre\src\LOUVRE\AppBundle\Ticket" />
     </key>
   </component>
   <component name="RunManager">
@@ -266,17 +258,22 @@
       <workItem from="1460370059887" duration="9608000" />
       <workItem from="1460394118594" duration="3795000" />
       <workItem from="1460399047981" duration="5190000" />
+      <workItem from="1460448949218" duration="4175000" />
+      <workItem from="1460455501258" duration="13676000" />
+      <workItem from="1460482701730" duration="1093000" />
+      <workItem from="1460486201145" duration="5674000" />
+      <workItem from="1460492237812" duration="1500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73777000" />
+    <option name="totallyTimeSpent" value="99895000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25549048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2203514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -313,45 +310,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#43#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="68" column="32" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2941">
-          <caret line="173" column="21" selection-start-line="173" selection-start-column="21" selection-end-line="173" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/commandTickets.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -457,13 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Form/CommandType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="37" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -475,13 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Validator/Constraints/ConstraintTicketWithoutHolidayTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -520,74 +464,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="82" column="120" selection-start-line="82" selection-start-column="120" selection-end-line="82" selection-end-column="120" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="211" column="21" selection-start-line="211" selection-start-column="21" selection-end-line="211" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="86" selection-start-line="18" selection-start-column="86" selection-end-line="18" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREHalfTicket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREFamilyPriceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Validator/Constraints/ConstraintTicketValidatorTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -598,37 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicketValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicketWithoutHolidayValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -636,29 +485,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php">
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Validator/Constraints/ConstraintTicketValidatorTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="170" column="33" selection-start-line="170" selection-start-column="33" selection-end-line="170" selection-end-column="33" />
-          <folding>
-            <element signature="e#43#91#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="408">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php">
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Validator/Constraints/ConstraintTicketWithoutHolidayTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="257" column="4" selection-start-line="257" selection-start-column="4" selection-end-line="257" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="170">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml">
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding />
+        <state relative-caret-position="340">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREThousandTicketsTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -670,23 +521,159 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREFamilyPriceTest.php" />
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="44" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Entity/TicketTest.php" />
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="74" column="218" selection-start-line="74" selection-start-column="218" selection-end-line="74" selection-end-column="218" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Validator/Constraints/ConstraintTicketValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Form/CommandType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <folding>
+            <element signature="e#41#81#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREHalfTicketTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREHalfTicket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREThousandTickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="e#426#451#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREGetPrice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        <state relative-caret-position="249">
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRETicketsName.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
+          <folding>
+            <element signature="e#43#91#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="119" column="38" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
+        <state relative-caret-position="342">
+          <caret line="160" column="21" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
           <folding>
             <element signature="e#47#104#0#PHP" expanded="true" />
-            <element signature="e#1850#1875#1#PHP" expanded="true" />
-            <element signature="e#3207#3232#1#PHP" expanded="true" />
-            <element signature="e#3388#3412#1#PHP" expanded="true" />
+            <element signature="e#2680#2705#1#PHP" expanded="true" />
+            <element signature="e#4845#4870#1#PHP" expanded="true" />
+            <element signature="e#5025#5049#1#PHP" expanded="true" />
+            <element signature="e#6697#6736#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

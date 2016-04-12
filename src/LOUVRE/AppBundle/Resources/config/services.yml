@@ -14,12 +14,17 @@ services:
         
     louvre_app.half:
         class: LOUVRE\AppBundle\Ticket\LOUVREHalfTicket
-        
+
     louvre_app.thousand:
         class: LOUVRE\AppBundle\Ticket\LOUVREThousandTickets
+        arguments: ['@doctrine.orm.entity_manager']
 
     louvre_app.getprice:
         class: LOUVRE\AppBundle\Ticket\LOUVREGetPrice
+        arguments: ['@louvre_app.toddler', '@louvre_app.child', '@louvre_app.senior']
+
+    louvre_app.getname:
+        class: LOUVRE\AppBundle\Ticket\LOUVRETicketsName
         arguments: ['@louvre_app.toddler', '@louvre_app.child', '@louvre_app.senior']
     
     louvre_app.bookingcode:

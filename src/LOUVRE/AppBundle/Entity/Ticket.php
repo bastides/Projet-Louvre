@@ -75,9 +75,16 @@ class Ticket
     /**
      * @var int
      *
-     * @ORM\Column(type="decimal", scale=2, nullable=true)
+     * @ORM\Column(name="price", type="decimal", scale=2, nullable=true)
      */
     private $price;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ticketname", type="string", length=255, nullable=true)
+     */
+    private $ticketname;
     
     /**
      * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Command", inversedBy="tickets", cascade={"persist"})
@@ -103,6 +110,8 @@ class Ticket
      */
     public function setLastname($lastname)
     {
+        $lastname = strtoupper($lastname);
+
         $this->lastname = $lastname;
 
         return $this;
@@ -126,6 +135,8 @@ class Ticket
      */
     public function setFirstname($firstname)
     {
+        $firstname = ucfirst($firstname);
+
         $this->firstname = $firstname;
 
         return $this;
@@ -255,5 +266,28 @@ class Ticket
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set ticketname
+     *
+     * @param string $ticketname
+     * @return Ticket
+     */
+    public function setTicketname($ticketname)
+    {
+        $this->ticketname = $ticketname;
+
+        return $this;
+    }
+
+    /**
+     * Get ticketname
+     *
+     * @return string 
+     */
+    public function getTicketname()
+    {
+        return $this->ticketname;
     }
 }

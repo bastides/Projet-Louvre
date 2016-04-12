@@ -80,6 +80,13 @@ class Command
      * @ORM\Column(name="bookingCode", type="string", length=255, unique=true)
      */
     private $bookingCode;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="totalprice", type="decimal", scale=2, nullable=true)
+     */
+    private $totalprice;
     
     /**
      * @var ArrayCollection
@@ -241,5 +248,28 @@ class Command
     public function removeTicket(Ticket $ticket)
     {
         $this->tickets->removeElement($ticket);
+    }
+
+    /**
+     * Set totalprice
+     *
+     * @param string $totalprice
+     * @return Command
+     */
+    public function setTotalprice($totalprice)
+    {
+        $this->totalprice = $totalprice;
+
+        return $this;
+    }
+
+    /**
+     * Get totalprice
+     *
+     * @return string 
+     */
+    public function getTotalprice()
+    {
+        return $this->totalprice;
     }
 }
