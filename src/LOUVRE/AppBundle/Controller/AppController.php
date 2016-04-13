@@ -34,8 +34,19 @@ class AppController extends Controller
             // Récupération de la quantité de billets entrée par l'utilisateur
             $getQuantity = $formC->get('quantity')->getData();
 
+            // ---------- EMPECHER DE POUVOIR COMMANDER UN BILLET JOURNEE APRES 14H LE JOUR MEME ----------
+            // Appel du service HalfTicket
+            $getHalfTicket = $this->container->get('louvre_app.half');
+            // Récupération du type de billet
+            $getTicketType = $formC->get('ticketType')->getData();
+            // Date et heure actuelle
+            date_default_timezone_set('Europe/Paris');
+            $date = new \DateTime();
+
             if ($getThousandTickets->isThousandTickets($getBookingDay, $getQuantity) === true) {
                 throw new Exception("Le musée est complet pour cette date !");
+            } elseif ($getTicketType === 'Journée' && $getHalfTicket->isHalfTicket($date, $getBookingDay) === true) {
+                throw new Exception("Vous ne pouvez pas acheter un billet journée après 14h pour cette date !");
             }
 
             // ---------- GENERATION DU NUMERO DE COMMNDE ----------
@@ -68,21 +79,8 @@ class AppController extends Controller
         $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
             ->findOneBy(array('bookingCode' => $bookingCode));
 
-        // ---------- EMPECHER DE POUVOIR COMMANDER UN BILLET JOURNEE APRES 14H LE JOUR MEME ----------
-        // Appel du service HalfTicket
-        $getHalfTicket = $this->container->get('louvre_app.half');
-        // Récupération du type de billet
-        $ticketType = $currentCommand->getTicketType();
-        // Récupération de la date de réservation
-        $bookingDay = $currentCommand->getBookingDay();
-        // Date et heure actuelle
-        date_default_timezone_set('Europe/Paris');
-        $date = new \DateTime();
-
         if (null === $currentCommand) {
             throw new Exception("Cette commande n'existe pas !");
-        } elseif ($ticketType === 'Journée' && $getHalfTicket->isHalfTicket($date, $bookingDay) === true) {
-            throw new Exception("Vous ne pouvez pas acheter un billet journée après 14h pour cette date !");
         }
 
         // ---------- CREATION ET STOCKAGE DES BILLETS DANS L'ARRYCOLLECTION ----------

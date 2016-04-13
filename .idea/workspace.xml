@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18e36593-0c97-4404-861b-ae41907d9eb7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRETicketsName.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREFamilyPriceTest.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/home.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREChildPriceTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREHalfTicketTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREHalfTicketTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVRESeniorPriceTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Tests/Ticket/LOUVREToddlerPriceTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREChildPrice.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREHalfTicket.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREHalfTicket.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRESeniorPrice.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREThousandTickets.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREThousandTickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php" afterPath="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVREToddlerPrice.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
     </list>
     <ignored path="Projet-Louvre.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +24,7 @@
     <favorites_list name="Projet-Louvre" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -96,9 +79,9 @@
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Ticket/LOUVRETicketsName.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Resources/views/App/summary.html.twig" />
+        <option value="$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php" />
       </list>
     </option>
   </component>
@@ -158,6 +141,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -178,8 +163,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,11 +246,12 @@
       <workItem from="1460482701730" duration="1093000" />
       <workItem from="1460486201145" duration="5674000" />
       <workItem from="1460492237812" duration="1500000" />
+      <workItem from="1460549669981" duration="755000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99895000" />
+    <option name="totallyTimeSpent" value="100650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -517,7 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -569,9 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-          <folding>
-            <element signature="e#41#81#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -586,7 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -594,9 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding>
-            <element signature="e#426#451#1#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -611,7 +587,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -626,25 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="88" column="24" selection-start-line="88" selection-start-column="24" selection-end-line="88" selection-end-column="24" />
-          <folding>
-            <element signature="e#43#91#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -652,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,20 +615,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
           <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Entity/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+          <folding>
+            <element signature="e#43#91#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LOUVRE/AppBundle/Controller/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="160" column="21" selection-start-line="160" selection-start-column="21" selection-end-line="160" selection-end-column="21" />
+        <state relative-caret-position="798">
+          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
           <folding>
             <element signature="e#47#104#0#PHP" expanded="true" />
-            <element signature="e#2680#2705#1#PHP" expanded="true" />
-            <element signature="e#4845#4870#1#PHP" expanded="true" />
-            <element signature="e#5025#5049#1#PHP" expanded="true" />
-            <element signature="e#6697#6736#0#PHP" expanded="true" />
+            <element signature="e#6644#6683#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
