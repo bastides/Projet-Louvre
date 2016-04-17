@@ -36,9 +36,16 @@
             </div>
         </div>
 
-        <div class="row" id="summary-button">
-            <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
-                <a href="{{ path('louvre_app_home') }}" class="btn btn-primary btn-block text-center">Régler</a>
+        <div id="summary-buttons">
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 payment-button">
+                    <a href="{{ path('louvre_paypal_payment_prepare') }}" class="btn btn-primary btn-block text-center">PAYPAL</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-4 col-md-4 payment-button">
+                    <a href="{{ path('louvre_app_home') }}" class="btn btn-primary btn-block text-center">CARTE BANCAIRE</a>
+                </div>
             </div>
         </div>
 

@@ -212,6 +212,10 @@
     font-size: 16px;
 }
 
-#summary-button {
+#summary-buttons {
     margin-top: 40px;
+}
+
+.payment-button {
+    margin-top: 10px;
 }

@@ -64,3 +64,20 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+payum:
+    security:
+        token_storage:
+            LOUVRE\AppBundle\Entity\PaymentToken: { doctrine: orm }
+
+    storages:
+        LOUVRE\AppBundle\Entity\Payment: { doctrine: orm }
+        LOUVRE\AppBundle\Entity\PaymentDetails: { doctrine: orm }
+
+    gateways:
+        tickets_by_paypal:
+            factory: paypal_express_checkout
+            username:  'marchant_api1.louvre.com'
+            password:  '6DM2T799E7YNAEXC'
+            signature: 'AuMNOC9q7vs6767vS28.8GUPHKmcATiE39dhf31gsex9pZQX4JhUcEDC'
+            sandbox: true
