@@ -1,0 +1,23 @@
+{% extends "LOUVREAppBundle::layout.html.twig" %}
+
+{% block title %} {{ parent() }} - Confirmation de paiement {% endblock %}
+
+{% block stylesheets %} {{ parent() }} {% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <div id="message-flash" class="row col-xs-12 col-sm-offset-3 col-sm-6">
+            {% for message in app.session.flashbag.get('info') %}
+                <div class="alert alert-info text-center">Message flash : {{ message }}</div>
+            {% endfor %}
+        </div>
+
+        <div id="return-home-button" class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
+            <a href="{{ path('louvre_app_home') }}" class="btn btn-primary btn-block text-center">Retour à l'accueil</a>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %} {{ parent() }} {% endblock %}

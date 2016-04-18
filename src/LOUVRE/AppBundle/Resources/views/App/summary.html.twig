@@ -39,7 +39,7 @@
         <div id="summary-buttons">
             <div class="row">
                 <div class="col-xs-12 col-md-offset-4 col-md-4 payment-button">
-                    <a href="{{ path('louvre_paypal_payment_prepare') }}" class="btn btn-primary btn-block text-center">PAYPAL</a>
+                    <a href="{{ path('louvre_paypal_payment_prepare', {'bookingCode': command.bookingCode}) }}" class="btn btn-primary btn-block text-center">PAYPAL</a>
                 </div>
             </div>
             <div class="row">

@@ -163,4 +163,8 @@ class AppController extends Controller
             'listTickets' => $listTickets
         ));
     }
+
+    public function afterPaymentAction() {
+        return $this->render('LOUVREAppBundle:App:afterPayment.html.twig');
+    }
 }

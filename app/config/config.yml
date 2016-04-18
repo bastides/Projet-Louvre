@@ -77,7 +77,7 @@ payum:
     gateways:
         tickets_by_paypal:
             factory: paypal_express_checkout
-            username:  'marchant_api1.louvre.com'
-            password:  '6DM2T799E7YNAEXC'
-            signature: 'AuMNOC9q7vs6767vS28.8GUPHKmcATiE39dhf31gsex9pZQX4JhUcEDC'
+            username:  'louvre_api1.louvre.com'
+            password:  'EXRWC7DACCNG96V5'
+            signature: 'AFcWxV21C7fd0v3bYYYRCpSSRl31Ats2q96gYv4D08Jhp34tY97.X45q'
             sandbox: true

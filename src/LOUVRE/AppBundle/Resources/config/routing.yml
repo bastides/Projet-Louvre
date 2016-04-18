@@ -19,9 +19,13 @@ louvre_app_summary:
         orderNumber: "([A-Z])(\d+)(LOUVRE)(\d+)"
 
 louvre_paypal_payment_prepare:
-    path:     /paypal
+    path:     /paypal/{bookingCode}
     defaults: { _controller: LOUVREAppBundle:Payment:preparePaypalExpressCheckoutPayment }
 
 louvre_paypal_payment_done:
     path:     /done
     defaults: { _controller: LOUVREAppBundle:Payment:captureDone }
+
+louvre_after_payment:
+    path:     /confirmation
+    defaults: { _controller: LOUVREAppBundle:App:afterPayment }
