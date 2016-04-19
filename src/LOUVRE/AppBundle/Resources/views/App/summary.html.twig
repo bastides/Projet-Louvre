@@ -44,7 +44,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-offset-4 col-md-4 payment-button">
-                    <a href="{{ path('louvre_app_home') }}" class="btn btn-primary btn-block text-center">CARTE BANCAIRE</a>
+                    <a href="{{ path('louvre_stripe_payment_prepare', {'bookingCode': command.bookingCode}) }}" class="btn btn-primary btn-block text-center">CARTE BANCAIRE</a>
                 </div>
             </div>
         </div>

@@ -81,3 +81,8 @@ payum:
             password:  'EXRWC7DACCNG96V5'
             signature: 'AFcWxV21C7fd0v3bYYYRCpSSRl31Ats2q96gYv4D08Jhp34tY97.X45q'
             sandbox: true
+
+        tickets_by_stripe:
+                    factory: stripe_checkout
+                    publishable_key: 'pk_test_8Ul3lcWUwjfLkol0AO8vDTg9'
+                    secret_key:      'sk_test_tSssPAG8bgrjgO44SxYYl7cP'

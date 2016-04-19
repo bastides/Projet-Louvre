@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use LOUVRE\AppBundle\Entity\Command;
 use LOUVRE\AppBundle\Entity\Ticket;
+use LOUVRE\AppBundle\Entity\PaymentDetails;
+use Payum\Core\Security\SensitiveValue;
 
 class PaymentController extends Controller
 {
@@ -40,7 +42,36 @@ class PaymentController extends Controller
         $captureToken = $this->get('payum')->getTokenFactory()->createCaptureToken(
             $gatewayName,
             $details,
-            'louvre_paypal_payment_done' // the route to redirect after capture;
+            'louvre_payment_done' // the route to redirect after capture;
+        );
+
+        return $this->redirect($captureToken->getTargetUrl());
+    }
+
+    public function prepareStripeJsPaymentAction($bookingCode)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        // Récupération de la commande en cours
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
+            ->findOneBy(array('bookingCode' => $bookingCode));
+
+        $amount = $currentCommand->getTotalprice() * 100;
+
+        $gatewayName = 'tickets_by_stripe';
+
+        $storage = $this->get('payum')->getStorage('LOUVRE\AppBundle\Entity\PaymentDetails');
+
+        /** @var PaymentDetails $details */
+        $details = $storage->create();
+        $details["amount"] = $amount;
+        $details["currency"] = 'EUR';
+        $storage->update($details);
+
+        $captureToken = $this->get('payum')->getTokenFactory()->createCaptureToken(
+            $gatewayName,
+            $details,
+            'louvre_payment_done' // the route to redirect after capture;
         );
 
         return $this->redirect($captureToken->getTargetUrl());

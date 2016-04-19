@@ -22,7 +22,11 @@ louvre_paypal_payment_prepare:
     path:     /paypal/{bookingCode}
     defaults: { _controller: LOUVREAppBundle:Payment:preparePaypalExpressCheckoutPayment }
 
-louvre_paypal_payment_done:
+louvre_stripe_payment_prepare:
+    path:     /stripe/{bookingCode}
+    defaults: { _controller: LOUVREAppBundle:Payment:prepareStripeJsPayment }
+
+louvre_payment_done:
     path:     /done
     defaults: { _controller: LOUVREAppBundle:Payment:captureDone }
 
