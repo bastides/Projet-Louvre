@@ -86,3 +86,36 @@ payum:
                     factory: stripe_checkout
                     publishable_key: 'pk_test_8Ul3lcWUwjfLkol0AO8vDTg9'
                     secret_key:      'sk_test_tSssPAG8bgrjgO44SxYYl7cP'
+
+nomaya_social:
+    buttons:
+        facebook:
+            url:            "http://www.louvrebilletsenligne.fr"
+            locale:         "fr_FR"
+            send:           false
+            width:          300
+            showFaces:      false
+            layout:         "button"
+        twitter:
+            url:            "http://www.louvrebilletsenligne.fr"
+            locale:         "fr"
+            message:        "Réservation des billets pour le Louvre"
+            text:           "Tweet"
+            via:            "LouvreBilleterieEnLigne"
+            tag:            "louvre"
+        googleplus:
+            url:            null
+            locale :        "fr"
+            size :          "medium"
+            annotation :    "bubble"
+            width :         300
+        linkedin:
+            url:            null
+            locale:         "fr_FR"
+            counter:        "right"
+        pinterest:
+            url:            null
+    links:
+        facebook:           "http://www.facebook.com/"
+        googleplus:         "https://plus.google.com/"
+    theme:                  'default' # optional

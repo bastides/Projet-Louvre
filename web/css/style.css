@@ -232,3 +232,21 @@
 #return-home-button {
     margin-top: 50px;
 }
+
+#social-button {
+    margin-top: 220px;
+}
+
+#twitter {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#facebook {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.bder {
+    border: 1px solid black;
+}
