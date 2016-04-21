@@ -158,6 +158,17 @@ class AppController extends Controller
         $em->persist($currentCommand);
         $em->flush();
 
+        $this->get('knp_snappy.pdf')->generateFromHtml(
+            $this->renderView(
+                'LOUVREAppBundle:App:pdf.html.twig',
+                array(
+                    'command' => $currentCommand,
+                    'listTickets' => $listTickets
+                )
+            ),
+            'C:\wamp64\www\Projet-Louvre\web\pdf\test.pdf'
+        );
+
         return $this->render('LOUVREAppBundle:App:summary.html.twig', array(
             'command' => $currentCommand,
             'listTickets' => $listTickets
@@ -167,4 +178,5 @@ class AppController extends Controller
     public function afterPaymentAction() {
         return $this->render('LOUVREAppBundle:App:afterPayment.html.twig');
     }
+    
 }

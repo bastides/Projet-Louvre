@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+            <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~ asset('css/bootstrap.css') }}" />
+            <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~ asset('css/Aristo/Aristo.css') }}" />
+            <link rel="stylesheet" href="{{ app.request.getSchemeAndHttpHost() ~ asset('css/style.css') }}" />
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+    <body>
+        <div class="container">
+
+            {% for ticket in listTickets %}
+                <div id="ticket-pdf" class="col-md-6">
+                    <div class="row" id="logo-ticket">
+                        <img class="col-md-7" src="{{ app.request.getSchemeAndHttpHost() ~ asset('img/louvre-logo-min.png') }}" />
+                        <img id="qrcode" class="col-md-push-3 col-md-2" src="{{ qrcode_data_uri( command.bookingCode , size=70, padding=10) }}" />
+                    </div>
+                    <div id="input-date-pdf" class="row">
+                        <p class="col-md-8 bold">Date de réservation : {{ command.bookingDay|date("d/m/Y") }}</p>
+                    </div>
+                    <div id="input-name-pdf" class="row">
+                        <p class="col-md-8 bold">{{ ticket.lastname }} {{ ticket.firstname }}</p>
+                    </div>
+                    <div id="input-ticket-name-pdf" class="row">
+                        <p class="col-md-10 bold">{{ ticket.ticketname }}</p>
+                    </div>
+                    <div id="input-price-pdf" class="row">
+                        <p class="col-md-2 text-right bold">{{ ticket.price }} €</p>
+                    </div>
+                    <div class="col-md-12" id="separator"></div>
+                    <div class="row">
+                        <p class="col-md-12 bold">N° de réservation : {{ command.bookingCode }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <script src="{{ app.request.getSchemeAndHttpHost() ~ asset('js/jquery1.12.1.js') }}"></script>
+        <script src="{{ app.request.getSchemeAndHttpHost() ~ asset('js/jquery-ui.js') }}"></script>
+        <script src="{{ app.request.getSchemeAndHttpHost() ~ asset('js/datepicker-fr.js') }}"></script>
+        <script src="{{ app.request.getSchemeAndHttpHost() ~ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ app.request.getSchemeAndHttpHost() ~ asset('js/script.js') }}"></script>
+    </body>
+</html>

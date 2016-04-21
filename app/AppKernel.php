@@ -18,6 +18,8 @@ class AppKernel extends Kernel
             new LOUVRE\AppBundle\LOUVREAppBundle(),
             new Payum\Bundle\PayumBundle\PayumBundle(),
             new Nomaya\SocialBundle\NomayaSocialBundle(),
+            new Endroid\Bundle\QrCodeBundle\EndroidQrCodeBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

@@ -119,3 +119,26 @@ nomaya_social:
         facebook:           "http://www.facebook.com/"
         googleplus:         "https://plus.google.com/"
     theme:                  'default' # optional
+
+endroid_qr_code:
+    size: 50
+    padding: 10
+    extension: gif
+    error_correction_level: high
+    foreground_color: { r: 0, g: 0, b: 0, a: 0 }
+    background_color: { r: 255, g: 255, b: 255, a: 0 }
+    label: ""
+    label_font_size: 10
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:    []
+    image:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
+        options:    []
+
+knp_snappy:
+    temporary_folder: %kernel.cache_dir%/snappy
