@@ -11,6 +11,8 @@ use LOUVRE\AppBundle\Entity\Command;
 use LOUVRE\AppBundle\Entity\Ticket;
 use LOUVRE\AppBundle\Entity\PaymentDetails;
 use Payum\Core\Security\SensitiveValue;
+use LOUVRE\AppBundle\Pdf\PdfEvents;
+use LOUVRE\AppBundle\Pdf\PdfPostEvent;
 
 class PaymentController extends Controller
 {
@@ -38,6 +40,11 @@ class PaymentController extends Controller
             $details['L_PAYMENTREQUEST_0_AMT' . $i] = $ticket->getPrice();
         }
         $storage->update($details);
+
+        $payment = $storage->find($details->getId());
+        $payment->setCommand($currentCommand);
+        $em->persist($payment);
+        $em->flush($payment);
 
         $captureToken = $this->get('payum')->getTokenFactory()->createCaptureToken(
             $gatewayName,
@@ -68,6 +75,11 @@ class PaymentController extends Controller
         $details["currency"] = 'EUR';
         $storage->update($details);
 
+        $payment = $storage->find($details->getId());
+        $payment->setCommand($currentCommand);
+        $em->persist($payment);
+        $em->flush($payment);
+
         $captureToken = $this->get('payum')->getTokenFactory()->createCaptureToken(
             $gatewayName,
             $details,
@@ -83,6 +95,16 @@ class PaymentController extends Controller
 
         $identity = $token->getDetails();
         $model = $this->get('payum')->getStorage($identity->getClass())->find($identity);
+
+        $em = $this->getDoctrine()->getManager();
+        // Récupération de l'ID de la commande
+        $commandId = $model->getCommand()->getId();
+        // Récupération de la commande en cours
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
+            ->find($commandId);
+        // Récupération de la liste des billets
+        $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
+            ->findBy(array('command' => $currentCommand));
 
         $gateway = $this->get('payum')->getGateway($token->getGatewayName());
 
@@ -100,8 +122,17 @@ class PaymentController extends Controller
         // you have order and payment status
         // so you can do whatever you want for example you can just print status and payment details.
 
-        if ($status->isCaptured()) {
-            $this->get('session')->getFlashBag()->add('info', 'Paiement accepté !');
+        if ($status->isCaptured()) { // faire evenement (ne pas faire le pdf dans le controller)
+            // Création de l'évènement avec ses 2 arguments
+            $event = new PdfPostEvent($currentCommand, $listTickets);
+
+            // Déclenchement de l'évènement
+            $this
+                ->get('event_dispatcher')
+                ->dispatch(PdfEvents::onPaymentOk, $event)
+            ;
+
+            $this->get('session')->getFlashBag()->add('info', 'Paiement accepté, vous allez recevoir vos billets par Email !');
         } else {
             $this->get('session')->getFlashBag()->add('info', 'Un problème c\'est produit lors du paiement, veuillez réessayez !');
         }

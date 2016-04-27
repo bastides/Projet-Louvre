@@ -261,13 +261,14 @@
     border: 3px double black;
     background-image: url("../img/sayagata.png");
     font-size: 15px;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 #logo-ticket {
     margin-bottom: 20px;
     background-color: white;
     padding-bottom: 15px;
+    border-bottom: 3px solid #3279b7;
 }
 
 #qrcode {

@@ -29,3 +29,13 @@ services:
     
     louvre_app.bookingcode:
         class: LOUVRE\AppBundle\Command\LOUVREBookingCode
+
+    louvre_app.pdf_process:
+            class:     LOUVRE\AppBundle\Pdf\PdfProcess
+            arguments: ['@mailer', '@knp_snappy.pdf', '@twig']
+
+    louvre_app.pdf_process_listener:
+            class:     LOUVRE\AppBundle\Pdf\PdfProcessListener
+            arguments: ['@louvre_app.pdf_process']
+            tags:
+                - { name: kernel.event_listener, event: louvre_app.pdf.payment_ok, method: doProcess }

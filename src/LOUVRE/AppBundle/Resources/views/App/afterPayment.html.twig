@@ -9,7 +9,7 @@
 
         <div id="message-flash" class="row col-xs-12 col-sm-offset-3 col-sm-6">
             {% for message in app.session.flashbag.get('info') %}
-                <div class="alert alert-info text-center">Message flash : {{ message }}</div>
+                <div class="alert alert-info text-center">{{ message }}</div>
             {% endfor %}
         </div>
 
