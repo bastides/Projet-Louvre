@@ -2,22 +2,12 @@
 
 namespace LOUVRE\AppBundle\Ticket;
 
-use Doctrine\ORM\EntityManagerInterface;
 
 class LOUVREThousandTickets
 {
-    private $em;
-
-    public function __construct(EntityManagerInterface $em)
+    // Renvoie true si 1000 billets ont été vendu pour cette date
+    public function isThousandTickets($listCommands, $quantity)
     {
-        $this->em = $em;
-    }
-
-    // Renvoie true si un total de 1000 billets ont été vendu pour cette date
-    public function isThousandTickets($bookingDay, $quantity)
-    {
-        $listCommands = $this->em->getRepository('LOUVREAppBundle:Command')->findBy(array('bookingDay' => $bookingDay));
-
         $totalTickets = 0;
 
         foreach ($listCommands as $command) {
@@ -25,10 +15,6 @@ class LOUVREThousandTickets
             $totalTickets += $commandQuantity;
         }
 
-        if (($totalTickets + $quantity) > 1000 ) {
-            return true;
-        } else {
-            return false;
-        }
+        return (($totalTickets + $quantity) > 1000 );
     }
 }

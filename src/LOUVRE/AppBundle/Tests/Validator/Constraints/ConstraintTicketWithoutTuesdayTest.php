@@ -21,7 +21,7 @@ class ConstraintTicketWithoutTuesdayTest extends AbstractConstraintValidatorTest
         $date = new \DateTime('2016-03-15');
         
         $this->validator->validate($date, new ConstraintTicketWithoutTuesday);
-        $this->assertNoViolation();
+        $this->buildViolation('Vous ne pouvez pas commander de billet pour un mardi.');
     }
     
     protected function createValidator()

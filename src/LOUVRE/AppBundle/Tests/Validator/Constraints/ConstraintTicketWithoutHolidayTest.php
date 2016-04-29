@@ -22,11 +22,11 @@ class ConstraintTicketWithoutHolidayTest extends AbstractConstraintValidatorTest
         $date3 = new \DateTime('2016-12-25'); 
         
         $this->validator->validate($date1, new ConstraintTicketWithoutHoliday);
-        $this->assertNoViolation();
+        $this->buildViolation('Vous ne pouvez pas commander de billet un jour férié.');
         $this->validator->validate($date2, new ConstraintTicketWithoutHoliday);
-        $this->assertNoViolation();
+        $this->buildViolation('Vous ne pouvez pas commander de billet un jour férié.');
         $this->validator->validate($date3, new ConstraintTicketWithoutHoliday);
-        $this->assertNoViolation();
+        $this->buildViolation('Vous ne pouvez pas commander de billet un jour férié.');
     }
     
     protected function createValidator()

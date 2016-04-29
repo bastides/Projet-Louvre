@@ -11,6 +11,7 @@ use LOUVRE\AppBundle\Entity\Command;
 use LOUVRE\AppBundle\Form\CommandType;
 use LOUVRE\AppBundle\Entity\Ticket;
 use LOUVRE\AppBundle\Form\TicketType;
+use Doctrine\ORM\Cache\Persister\Collection;
 
 class AppController extends Controller
 {    
@@ -21,6 +22,9 @@ class AppController extends Controller
     
     public function commandAction(Request $request) 
     {
+
+        $em = $this->getDoctrine()->getManager();
+
         $command = new Command();
         $formC = $this->get('form.factory')->create(CommandType::class, $command);
         
@@ -40,10 +44,11 @@ class AppController extends Controller
             // Récupération du type de billet
             $getTicketType = $formC->get('ticketType')->getData();
             // Date et heure actuelle
-            date_default_timezone_set('Europe/Paris');
             $date = new \DateTime();
 
-            if ($getThousandTickets->isThousandTickets($getBookingDay, $getQuantity) === true) {
+            $listCommands = $em->getRepository('LOUVREAppBundle:Command')->findBy(array('bookingDay' => $getBookingDay));
+
+            if ($getThousandTickets->isThousandTickets($listCommands, $getQuantity) === true) {
                 throw new Exception("Le musée est complet pour cette date !");
             } elseif ($getTicketType === 'Journée' && $getHalfTicket->isHalfTicket($date, $getBookingDay) === true) {
                 throw new Exception("Vous ne pouvez pas acheter un billet journée après 14h pour cette date !");

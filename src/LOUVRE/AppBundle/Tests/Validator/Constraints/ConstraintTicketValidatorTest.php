@@ -23,7 +23,7 @@ class ConstraintTicketValidatorTest extends AbstractConstraintValidatorTest
         $date = new \DateTime('@' . $timestamp);
         
         $this->validator->validate($date, new ConstraintTicket);
-        $this->assertNoViolation();
+        $this->buildViolation('Vous ne pouvez pas commander de billet sur une date antérieur.');
     }
     
     protected function createValidator()
