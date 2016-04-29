@@ -106,6 +106,8 @@ class PaymentController extends Controller
         $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
             ->findBy(array('command' => $currentCommand));
 
+        $bookingCode = $currentCommand->getBookingCode();
+
         $gateway = $this->get('payum')->getGateway($token->getGatewayName());
 
         // you can invalidate the token. The url could not be requested any more.
@@ -135,6 +137,10 @@ class PaymentController extends Controller
             $this->get('session')->getFlashBag()->add('info', 'Paiement accepté, vous allez recevoir vos billets par Email !');
         } else {
             $this->get('session')->getFlashBag()->add('info', 'Un problème c\'est produit lors du paiement, veuillez réessayez !');
+
+            return $this->redirectToRoute('louvre_app_summary', array(
+                'bookingCode' => $bookingCode
+            ));
         }
 
         return $this->redirectToRoute('louvre_after_payment');

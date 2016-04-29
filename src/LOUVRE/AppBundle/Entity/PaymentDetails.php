@@ -20,7 +20,7 @@ class PaymentDetails extends ArrayObject
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="LOUVRE\AppBundle\Entity\Command")
+     * @ORM\ManyToOne(targetEntity="LOUVRE\AppBundle\Entity\Command")
      * @ORM\JoinColumn(nullable=true)
      */
     private $command;

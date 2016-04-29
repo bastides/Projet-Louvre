@@ -49,6 +49,12 @@
             </div>
         </div>
 
+        <div class="row col-xs-12 col-sm-offset-3 col-sm-6 message-flash">
+            {% for message in app.session.flashbag.get('info') %}
+                <div class="alert alert-danger text-center">{{ message }}</div>
+            {% endfor %}
+        </div>
+
     </div>
 {% endblock %}
 
