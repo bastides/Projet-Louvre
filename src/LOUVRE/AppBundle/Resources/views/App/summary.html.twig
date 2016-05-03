@@ -7,8 +7,8 @@
 {% block body %}
     <div class="container">
 
-        <div class="row">
-            <h2>Votre commande</h2>
+        <div class="row" id="summary-title">
+            <h2 class="text-center">Votre commande</h2>
         </div>
 
         <div class="row">
@@ -23,13 +23,13 @@
                     {% for ticket in listTickets %}
                         <tr>
                             <td><span class="bold">{{ ticket.ticketname }}</span> {{ ticket.lastname }} {{ ticket.firstname }}</td>
-                            <td class="text-center"> {{ ticket.price }} € </td>
+                            <td class="text-center"> {{ ticket.price }} € <span class="ttc">TTC</span></td>
                         </tr>
                     {% endfor %}
 
                     <tr>
                         <td class="text-right bold">Total</td>
-                        <td class="text-center bold"> {{ command.totalprice }} € </td>
+                        <td class="text-center bold"> {{ command.totalprice }} € <span class="ttc">TTC</span></td>
                     </tr>
                     </tbody>
                 </table>

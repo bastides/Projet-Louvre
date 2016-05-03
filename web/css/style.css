@@ -4,6 +4,7 @@
 {
    font-family: 'JosefinSans';
     src: url('../police/JosefinSans-Regular.ttf') format('truetype');
+
     font-weight: normal;
     font-style: normal;
 }
@@ -42,7 +43,7 @@
 }
 
 #logo p {
-    font-family: JosefinSans, Arial, Georgia;
+    font-family: JosefinSans, sans-serif;
     font-size: 20px;
 }
 
@@ -50,15 +51,20 @@
     margin-top: 100px;
 }
 
+#deals h3 {
+    font-family: JosefinSans, sans-serif;
+    font-weight: bold;
+}
+
 #rate {
-    font-family: JosefinSans, Arial, Georgia;
+    font-family: JosefinSans, sans-serif;
     font-size: 20px;
     font-weight: bold;
 }
 
 .no-padding {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .margin-top {
@@ -189,6 +195,11 @@
 
 /* ------------------ SUMMARY PAGE ------------------ */
 
+#summary-title {
+    font-family: JosefinSans, sans-serif;
+    font-weight: bold;
+}
+
 #summary {
     background-color: #efefef;
     margin-top: 40px;
@@ -197,7 +208,7 @@
 }
 
 #summary p {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 #table-head {
@@ -210,6 +221,10 @@
     background-color: white;
     color: #221e1f;
     font-size: 16px;
+}
+
+.ttc {
+    font-size: 10px;
 }
 
 #summary-buttons {
