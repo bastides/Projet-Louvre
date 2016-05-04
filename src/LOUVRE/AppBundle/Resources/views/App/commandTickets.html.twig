@@ -5,11 +5,18 @@
 {% block stylesheets %} {{ parent() }} {% endblock %}
 
 {% block body %}
+    <div id="container-commandTickets">
     <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8 col-md-6 info-area">
+                <h4>Veuillez saisir les informations relatives à vos billets.</h4>
+            </div>
+        </div>
 
         {{ form_start(formC) }}
         {{ form_errors(formC) }}
-
+        <div class="row">
             {% for ticket in formC.tickets %}
                 <div class="col-sm-6 inputs-area">
                     <div class="row form-inline input-formC">
@@ -37,13 +44,18 @@
                         {{ form_widget(ticket.reducedPrice) }}
                         {{ form_errors(ticket.reducedPrice) }}
                     </div>
+                    <div class="row" id="info-reducedPrice">
+                        <P>(Sous présentation de la carte d’étudiant, militaire ou équivalent.)</P>
+                    </div>
                 </div>
             {% endfor %}
+        </div>
             <div class="row col-sm-12">
                 {{ form_widget(formC.save, {'attr': {'class': 'col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-2 btn btn-primary'}}) }}
             </div>
         {{ form_rest(formC) }}
         {{ form_end(formC) }}
+    </div>
     </div>
 {% endblock %}
 

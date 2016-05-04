@@ -34,6 +34,13 @@
     font-weight: bold;
 }
 
+.error_list {
+    list-style: none;
+    padding-left: 15px;
+    margin-top: 10px;
+    color: #843534;
+}
+
 /* ------------------ GLOBAL PAGE FIN ------------------ */
 
 /* ------------------ HOMEPAGE ------------------ */
@@ -176,6 +183,33 @@
 
 /* ------------------ COMMAND PAGE ------------------ */
 
+#container-command {
+    background-image: url('../img/photo01.png');
+    background-color: white;
+    background-size: 100%;
+    min-height: 100vh;
+}
+
+#container-commandTickets {
+    background-image: url('../img/photo02.png');
+    background-size: 100%;
+    background-color: white;
+    min-height: 100vh;
+}
+
+.info-area {
+    background-color: #efefef;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info-area h4 {
+    margin-left: 20px;
+    font-size: 14px;
+
+}
+
 .input-formC {
     margin-bottom: 10px;
 }
@@ -189,6 +223,14 @@
     margin-top: 10px;
     padding: 40px;
     border-radius: 5px;
+}
+
+#info-reducedPrice {
+    font-size: 12px;
+}
+
+#info-reducedPrice p {
+    margin-left: 15px;
 }
 
 /* ------------------ COMMAND FIN ------------------ */
