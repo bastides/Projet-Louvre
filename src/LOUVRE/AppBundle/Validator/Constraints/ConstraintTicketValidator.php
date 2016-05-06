@@ -12,8 +12,12 @@ class ConstraintTicketValidator extends ConstraintValidator
     {        
         $todayMidnight = strtotime('today midnight');
         
-        $currentTime = $date->getTimestamp();
+        if (!$date instanceof \DateTime){
+            $date = new \DateTime($date);
+        }
         
+        $currentTime = $date->getTimestamp();
+
         if ($currentTime < $todayMidnight) {
             $this->context->addViolation($constraint->message);
         }

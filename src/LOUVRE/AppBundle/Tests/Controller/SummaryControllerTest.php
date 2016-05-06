@@ -12,19 +12,10 @@ class SummaryControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/résumé/S356LOUVRE1462346563');
 
         $this->assertEquals('Votre commande', $crawler->filter('h2')->text());
-        $this->assertEquals('LOUVRE\AppBundle\Controller\AppController::summaryAction', $client->getRequest()->attributes->get('_controller'));
         $this->assertTrue(200 === $client->getResponse()->getStatusCode());
     }
 
-    public function testIsSummaryLink()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/résumé/S356LOUVRE1462346563');
-
-        $this->assertCount(2, $crawler->filter('a'));
-    }
-
-    /*public function testPaypalLink()
+    public function testPaypalLink()
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/résumé/S356LOUVRE1462346563');
@@ -32,7 +23,8 @@ class SummaryControllerTest extends WebTestCase
         $link = $crawler->selectLink('PAYPAL')->link();
         $client->click($link);
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $client->followRedirect();
+        $this->assertEquals('Payum\Bundle\PayumBundle\Controller\CaptureController::doAction', $client->getRequest()->attributes->get('_controller'));
     }
 
     public function testStripeLink()
@@ -43,6 +35,7 @@ class SummaryControllerTest extends WebTestCase
         $link = $crawler->selectLink('CARTE BANCAIRE')->link();
         $client->click($link);
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-    }*/
+        $client->followRedirect();
+        $this->assertEquals('Payum\Bundle\PayumBundle\Controller\CaptureController::doAction', $client->getRequest()->attributes->get('_controller'));
+    }
 }

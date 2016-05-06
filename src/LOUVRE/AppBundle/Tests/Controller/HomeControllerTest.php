@@ -11,16 +11,7 @@ class HomeControllerTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
 
-        $this->assertEquals('LOUVRE\AppBundle\Controller\AppController::homeAction', $client->getRequest()->attributes->get('_controller'));
         $this->assertTrue(200 === $client->getResponse()->getStatusCode());
-    }
-
-    public function testIsHomeLink()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/');
-
-        $this->assertCount(1, $crawler->filter('a'));
     }
 
     public function testHomeLink()
@@ -30,7 +21,6 @@ class HomeControllerTest extends WebTestCase
         $link = $crawler->selectLink('Passer commande')->link();
         $client->click($link);
         
-        $this->assertEquals('LOUVRE\AppBundle\Controller\AppController::commandAction', $client->getRequest()->attributes->get('_controller'));
-        $this->assertTrue(200 === $client->getResponse()->getStatusCode());
+        $this->assertEquals('/commande', $client->getRequest()->getPathInfo()); // Retourne l'url
     }
 }

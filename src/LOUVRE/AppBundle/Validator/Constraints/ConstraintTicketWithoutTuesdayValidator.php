@@ -10,6 +10,10 @@ class ConstraintTicketWithoutTuesdayValidator extends ConstraintValidator
     // Renvoie false si le billet est acheter pour un mardi
     public function validate($dateTime, Constraint $constraint)
     {
+        if (!$dateTime instanceof \DateTime){
+            $dateTime = new \DateTime($dateTime);
+        }
+
         $timestamp = $dateTime->getTimestamp();
         $date = strftime('%A %d %B', $timestamp);
         $tuesday = explode(" ", $date);

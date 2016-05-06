@@ -13,6 +13,10 @@ class ConstraintTicketWithoutHolidayValidator extends ConstraintValidator
         $holidays = ['2016-05-01', '2016-11-01', '2016-12-25'];
         $holiday = [];
 
+        if (!$dateTime instanceof \DateTime){
+            $dateTime = new \DateTime($dateTime);
+        }
+
         $timestamp = $dateTime->getTimestamp();
         $date = strftime('%d %B', $timestamp);
 
