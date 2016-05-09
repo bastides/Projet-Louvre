@@ -31,6 +31,6 @@ class CommandControllerTest extends WebTestCase
         $client->submit($form);
         $client->followRedirect();
 
-        $this->assertEquals('louvre_app_commandtickets', $client->getRequest()->attributes->get('_route'));
+        $this->assertEquals('louvre_app_command_tickets', $client->getRequest()->attributes->get('_route'));
     }
 }

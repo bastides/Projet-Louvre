@@ -7,7 +7,7 @@
 {% block body %}
     <div class="container">
 
-        <div class="row col-xs-12 col-sm-offset-3 col-sm-6 message-flash">
+        <div class="row col-xs-offset-0 col-xs-12 col-sm-offset-3 col-sm-6 message-flash">
             {% for message in app.session.flashbag.get('info') %}
                 <div class="alert alert-success text-center">{{ message }}</div>
             {% endfor %}

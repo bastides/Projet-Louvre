@@ -6,7 +6,7 @@ louvre_app_command:
     path:     /commande
     defaults: { _controller: LOUVREAppBundle:App:command }
     
-louvre_app_commandtickets:
+louvre_app_command_tickets:
     path:     /commande/{bookingCode}
     defaults: { _controller: LOUVREAppBundle:App:commandTickets }
     requirements:

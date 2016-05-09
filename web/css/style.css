@@ -38,7 +38,7 @@
     list-style: none;
     padding-left: 15px;
     margin-top: 10px;
-    color: #843534;
+    color: red;
 }
 
 /* ------------------ GLOBAL PAGE FIN ------------------ */
@@ -287,11 +287,11 @@
 }
 
 #return-home-button {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 #social-button {
-    margin-top: 220px;
+    margin-top: 240px;
 }
 
 #twitter {

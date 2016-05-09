@@ -4,13 +4,10 @@ namespace LOUVRE\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Acl\Exception\Exception;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use LOUVRE\AppBundle\Entity\Command;
 use LOUVRE\AppBundle\Form\CommandType;
 use LOUVRE\AppBundle\Entity\Ticket;
-use LOUVRE\AppBundle\Form\TicketType;
 use Doctrine\ORM\Cache\Persister\Collection;
 
 class AppController extends Controller
@@ -22,28 +19,20 @@ class AppController extends Controller
     
     public function commandAction(Request $request) 
     {
-
         $em = $this->getDoctrine()->getManager();
-
         $command = new Command();
         $formC = $this->get('form.factory')->create(CommandType::class, $command);
         
         if ($formC->handleRequest($request)->isValid()) {
 
             // ---------- LIMITATION DE 1000 BILLETS POUR UNE DATE ----------
-            // Appel du service empechant la commande de 1000 billets pour le même jour
             $getThousandTickets = $this->container->get('louvre_app.thousand');
-            // Récupération de la date de réservation entrée par l'utilisateur
             $getBookingDay = $formC->get('bookingDay')->getData();
-            // Récupération de la quantité de billets entrée par l'utilisateur
             $getQuantity = $formC->get('quantity')->getData();
 
             // ---------- EMPECHER DE POUVOIR COMMANDER UN BILLET JOURNEE APRES 14H LE JOUR MEME ----------
-            // Appel du service HalfTicket
             $getHalfTicket = $this->container->get('louvre_app.half');
-            // Récupération du type de billet
             $getTicketType = $formC->get('ticketType')->getData();
-            // Date et heure actuelle
             $date = new \DateTime();
 
             $listCommands = $em->getRepository('LOUVREAppBundle:Command')->findBy(array('bookingDay' => $getBookingDay));
@@ -55,18 +44,14 @@ class AppController extends Controller
             }
 
             // ---------- GENERATION DU NUMERO DE COMMNDE ----------
-            // Appel du service pour générer un numéro de commande
             $getBookingCode = $this->container->get('louvre_app.bookingcode');
-            // Généation du numéro de commande
             $bookingCode = $getBookingCode->generateCode();
-            // Enregistrement du numéro de commande
             $command->setBookingCode($bookingCode);
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($command);
             $em->flush();
             
-            return $this->redirectToRoute('louvre_app_commandtickets', array(
+            return $this->redirectToRoute('louvre_app_command_tickets', array(
                 'bookingCode' => $bookingCode
             ));
         }
@@ -79,8 +64,6 @@ class AppController extends Controller
     public function commandTicketsAction(Request $request, $bookingCode) 
     {
         $em = $this->getDoctrine()->getManager();
-        
-        // Récupération de la commande en cours
         $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
             ->findOneBy(array('bookingCode' => $bookingCode));
 
@@ -89,7 +72,6 @@ class AppController extends Controller
         }
 
         // ---------- CREATION ET STOCKAGE DES BILLETS DANS L'ARRYCOLLECTION ----------
-        // Récupération du nombre de billets
         $quantity = $currentCommand->getQuantity();
         // Création et stockage des billets dans l'arrayCollection
         for ($i =  0; $i < $quantity; $i++) {
@@ -99,9 +81,7 @@ class AppController extends Controller
         }
         
         $formC = $this->get('form.factory')->create(CommandType::class, $currentCommand);
-        
         if ($formC->handleRequest($request)->isValid()) {
-            
             $em->persist($currentCommand);
             $em->flush();
 
@@ -118,20 +98,14 @@ class AppController extends Controller
     public function summaryAction(Request $request, $bookingCode)
     {
         $em = $this->getDoctrine()->getManager();
-
-        // Récupération de la commande en cours
         $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
             ->findOneBy(array('bookingCode' => $bookingCode));
-        // Récupération de la liste des billets
         $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
             ->findBy(array('command' => $currentCommand));
 
         // ---------- GENERATION DES TARIFS ET NOMS DES BILLETS ----------
-        // Appel du service pour générer le prix du billet
         $getPrice = $this->container->get('louvre_app.getprice');
-        // Appel du service pour le tarif famille
         $getFamily = $this->container->get('louvre_app.family');
-        // Appel du service pour le nom du billet
         $getName = $this->container->get('louvre_app.getname');
 
         // Détermination du prix des billets
@@ -162,8 +136,6 @@ class AppController extends Controller
         $currentCommand->setTotalprice($totalPrice);
         $em->persist($currentCommand);
         $em->flush();
-
-
 
         return $this->render('LOUVREAppBundle:App:summary.html.twig', array(
             'command' => $currentCommand,
