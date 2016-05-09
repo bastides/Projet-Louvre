@@ -23,7 +23,7 @@ class CommandControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/commande');
 
         $form = $crawler->selectButton('Valider')->form(array(
-            'command[bookingDay]' => '07/05/2016',
+            'command[bookingDay]' => '10/05/2018',
             'command[ticketType]' => 'Journée',
             'command[quantity]' => '1',
             'command[email]' => 'bastide.sebastien@gmail.com',
