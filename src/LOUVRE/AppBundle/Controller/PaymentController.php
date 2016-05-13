@@ -98,7 +98,7 @@ class PaymentController extends Controller
         $gateway->execute($status = new GetHumanStatus($token));
         $details = $status->getFirstModel();
 
-        if ($status->isCaptured()) { // faire evenement (ne pas faire le pdf dans le controller)
+        if ($status->isCaptured()) {
             // Création de l'évènement avec ses 2 arguments
             $event = new PdfPostEvent($currentCommand, $listTickets);
             // Déclenchement de l'évènement
@@ -106,7 +106,6 @@ class PaymentController extends Controller
                 ->get('event_dispatcher')
                 ->dispatch(PdfEvents::onPaymentOk, $event)
             ;
-
             $this->get('session')->getFlashBag()->add('info', 'Paiement accepté, vous allez recevoir vos billets par Email !');
         } else {
             $this->get('session')->getFlashBag()->add('info', 'Un problème c\'est produit lors du paiement, veuillez réessayez !');

@@ -49,6 +49,13 @@ class AppController extends Controller
             $command->setBookingCode($bookingCode);
             $em = $this->getDoctrine()->getManager();
             $em->persist($command);
+            // ---------- CREATION ET STOCKAGE DES BILLETS DANS L'ARRYCOLLECTION ----------
+            for ($i =  0; $i < $getQuantity; $i++) {
+                $ticket = new Ticket();
+                $ticket->setCommand($command);
+                $em->persist($ticket);
+                $command->addTicket($ticket);
+            }
             $em->flush();
             
             return $this->redirectToRoute('louvre_app_command_tickets', array(
@@ -69,15 +76,6 @@ class AppController extends Controller
 
         if (null === $currentCommand) {
             throw new Exception("Cette commande n'existe pas !");
-        }
-
-        // ---------- CREATION ET STOCKAGE DES BILLETS DANS L'ARRYCOLLECTION ----------
-        $quantity = $currentCommand->getQuantity();
-        // Création et stockage des billets dans l'arrayCollection
-        for ($i =  0; $i < $quantity; $i++) {
-            $ticket = new Ticket();
-            $ticket->setCommand($currentCommand);
-            $currentCommand->addTicket($ticket);
         }
         
         $formC = $this->get('form.factory')->create(CommandType::class, $currentCommand);

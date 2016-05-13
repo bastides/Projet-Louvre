@@ -25,7 +25,7 @@ class CommandControllerTest extends WebTestCase
         $form = $crawler->selectButton('Valider')->form(array(
             'command[bookingDay]' => '10/05/2018',
             'command[ticketType]' => 'Journée',
-            'command[quantity]' => '1',
+            'command[quantity]' => 1,
             'command[email]' => 'bastide.sebastien@gmail.com',
         ));
         $client->submit($form);
