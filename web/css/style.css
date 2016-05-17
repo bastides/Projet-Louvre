@@ -184,14 +184,14 @@
 /* ------------------ COMMAND PAGE ------------------ */
 
 #container-command {
-    background-image: url('../img/photo01.png');
+    background-image: url('../img/photo01.jpg');
     background-color: white;
     background-size: 100%;
     min-height: 100vh;
 }
 
 #container-commandTickets {
-    background-image: url('../img/photo02.png');
+    background-image: url('../img/photo02.jpg');
     background-size: 100%;
     background-color: white;
     min-height: 100vh;
