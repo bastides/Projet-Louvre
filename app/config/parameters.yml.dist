@@ -17,3 +17,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    payum.paypal.username:  'test'
+    payum.paypal.password:  'test'
+    payum.paypal.signature: 'test'
+    payum.paypal.sandbox: 'test'
+    payum.stripe.publishable_key: 'test'
+    payum.stripe.secret_key:      'test'
