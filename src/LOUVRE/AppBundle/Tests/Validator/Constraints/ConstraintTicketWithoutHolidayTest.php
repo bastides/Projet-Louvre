@@ -14,6 +14,14 @@ class ConstraintTicketWithoutHolidayTest extends AbstractConstraintValidatorTest
         $this->validator->validate($date, new ConstraintTicketWithoutHoliday);
         $this->assertNoViolation();
     }
+
+    public function testWithOutHolidayNoDatetime()
+    {
+        $date = '2016-07-15';
+
+        $this->validator->validate($date, new ConstraintTicketWithoutHoliday);
+        $this->assertNoViolation();
+    }
     
     public function testWithHoliday()
     {

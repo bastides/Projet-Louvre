@@ -16,6 +16,14 @@ class ConstraintTicketValidatorTest extends AbstractConstraintValidatorTest
         $this->validator->validate($date, new ConstraintTicket);
         $this->assertNoViolation();
     }
+
+    public function testValidTicketNoDatetime()
+    {
+        $date = '2019-06-20 01:25:25';
+
+        $this->validator->validate($date, new ConstraintTicket);
+        $this->assertNoViolation();
+    }
     
     public function testNotValidTicket()
     {
