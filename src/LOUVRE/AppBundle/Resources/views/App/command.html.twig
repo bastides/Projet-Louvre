@@ -18,6 +18,11 @@
             {{ form_errors(formC) }}
             <div class="row">
                 <div class="col-sm-8 col-md-6 inputs-area">
+
+                    {% for message in app.session.flashbag.get('info') %}
+                        <div class="alert alert-danger text-center">{{ message }}</div>
+                    {% endfor %}
+
                     <div class="row form-inline input-formC">
                         {{ form_label(formC.bookingDay, "Date de réservation :", {'label_attr': {'class': 'control-label col-sm-6'}}) }}
                         {{ form_widget(formC.bookingDay, {'attr': {'class': 'form-control'}}) }}
@@ -40,12 +45,16 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 {{ form_widget(formC.save, {'attr': {'class': 'col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-2 btn btn-primary'}}) }}
             </div>
             {{ form_rest(formC) }}
             {{ form_end(formC) }}
         </div>
+
+
+
     </div>
 {% endblock %}
 

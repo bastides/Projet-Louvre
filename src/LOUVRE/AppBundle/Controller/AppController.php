@@ -38,9 +38,11 @@ class AppController extends Controller
             $listCommands = $em->getRepository('LOUVREAppBundle:Command')->findBy(array('bookingDay' => $getBookingDay));
 
             if ($getThousandTickets->isThousandTickets($listCommands, $getQuantity) === true) {
-                throw new Exception("Le musée est complet pour cette date !");
+                $this->get('session')->getFlashBag()->add('info', 'Le musée est complet pour cette date !');
+                return $this->redirectToRoute('louvre_app_command');
             } elseif ($getTicketType === 'Journée' && $getHalfTicket->isHalfTicket($date, $getBookingDay) === true) {
-                throw new Exception("Vous ne pouvez pas acheter un billet journée après 14h pour cette date !");
+                $this->get('session')->getFlashBag()->add('info', 'Vous ne pouvez pas acheter un billet journée après 14h pour cette date !');
+                return $this->redirectToRoute('louvre_app_command');
             }
 
             // ---------- GENERATION DU NUMERO DE COMMNDE ----------

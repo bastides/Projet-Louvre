@@ -269,6 +269,14 @@
     font-size: 10px;
 }
 
+#summary-paiement-title {
+    font-family: JosefinSans, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 1px solid #262b33;
+    padding-top: 70px;
+}
+
 #summary-buttons {
     margin-top: 40px;
 }
