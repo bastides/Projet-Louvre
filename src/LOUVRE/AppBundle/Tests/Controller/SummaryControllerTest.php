@@ -9,7 +9,7 @@ class SummaryControllerTest extends WebTestCase
     public function testSummaryPage()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/résumé/Z414LOUVRE1462891680');
+        $crawler = $client->request('GET', '/resume/Z414LOUVRE1462891680');
 
         $this->assertEquals('Votre commande', $crawler->filter('h2')->text());
         $this->assertEquals('Commande N° Z414LOUVRE1462891680', $crawler->filter('#table-head')->text());

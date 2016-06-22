@@ -2,6 +2,7 @@
 
 namespace LOUVRE\AppBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Acl\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
@@ -98,8 +99,8 @@ class AppController extends Controller
     public function summaryAction(Request $request, $bookingCode)
     {
         $em = $this->getDoctrine()->getManager();
-        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
-            ->findOneBy(array('bookingCode' => $bookingCode));
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')->findOneBy(array('bookingCode' => $bookingCode));
+        if (!$currentCommand) { throw new Exception("Cette commande n'existe pas !"); }
         $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
             ->findBy(array('command' => $currentCommand));
 
@@ -129,11 +130,7 @@ class AppController extends Controller
         }
 
         // Calcul du montant total de tout les billets
-        $totalPrice = 0;
-        foreach ($listTickets as $ticket) {
-            $totalPrice += $ticket->getPrice();
-        }
-        $currentCommand->setTotalprice($totalPrice);
+        $currentCommand->setTotalprice($this->total($listTickets));
         $em->persist($currentCommand);
         $em->flush();
 
@@ -143,8 +140,18 @@ class AppController extends Controller
         ));
     }
 
-    public function afterPaymentAction() {
+    public function afterPaymentAction()
+    {
         return $this->render('LOUVREAppBundle:App:afterPayment.html.twig');
+    }
+
+    // Fonction de calcul du total de la commande
+    public function total(Array $listTickets) {
+        $totalPrice = 0;
+        foreach ($listTickets as $ticket) {
+            $totalPrice += $ticket->getPrice();
+        }
+        return $totalPrice;
     }
     
 }

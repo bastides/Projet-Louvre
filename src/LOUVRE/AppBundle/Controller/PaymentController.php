@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use LOUVRE\AppBundle\Entity\PaymentDetails;
 use LOUVRE\AppBundle\Pdf\PdfEvents;
 use LOUVRE\AppBundle\Pdf\PdfPostEvent;
+use Symfony\Component\Security\Acl\Exception\Exception;
 
 class PaymentController extends Controller
 {
@@ -16,8 +17,8 @@ class PaymentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
-            ->findOneBy(array('bookingCode' => $bookingCode));
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')->findOneBy(array('bookingCode' => $bookingCode));
+        if (!$currentCommand) { throw new Exception("Cette commande n'existe pas !"); }
         $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
             ->findBy(array('command' => $currentCommand));
 
@@ -52,8 +53,8 @@ class PaymentController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
-            ->findOneBy(array('bookingCode' => $bookingCode));
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')->findOneBy(array('bookingCode' => $bookingCode));
+        if (!$currentCommand) { throw new Exception("Cette commande n'existe pas !"); }
 
         $amount = $currentCommand->getTotalprice() * 100;
         $gatewayName = 'tickets_by_stripe';
@@ -87,8 +88,8 @@ class PaymentController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $commandId = $model->getCommand()->getId();
-        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')
-            ->find($commandId);
+        $currentCommand = $em->getRepository('LOUVREAppBundle:Command')->find($commandId);
+        if (!$currentCommand) { throw new Exception("Cette commande n'existe pas !"); }
         $listTickets = $em->getRepository('LOUVREAppBundle:Ticket')
             ->findBy(array('command' => $currentCommand));
 
