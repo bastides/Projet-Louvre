@@ -24,7 +24,7 @@ class PdfProcess
             ->setSubject("Vos billets pour le Louvre")
             ->setFrom('louvre@louvre.com')
             ->setTo($to)
-            ->setBody("Vous trouverez en Piece-jointe vos billets au format PDF", 'text/plain', 'UTF-8')
+            ->setBody("Merci de votre commande, vous trouverez en Piece-jointe vos billets au format PDF", 'text/plain', 'UTF-8')
             ->attach(\Swift_Attachment::fromPath(__DIR__.'\..\..\..\..\web\pdf\\' . $fileName . '.pdf'));
 
         $this->mailer->send($message);
